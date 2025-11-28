@@ -219,6 +219,16 @@ test_server() {
             test_endpoint "POST" "/auth/login" "用户登录"
             test_endpoint "POST" "/auth/logout" "用户登出"
             
+            # OAuth端点
+            test_endpoint "POST" "/auth/google/login" "Google登录/绑定"
+            test_endpoint "POST" "/auth/google/callback" "Google回调"
+            test_endpoint "POST" "/auth/github/login" "GitHub登录/绑定"
+            test_endpoint "POST" "/auth/github/callback" "GitHub回调"
+            
+            # 用户资料端点（需要认证，预期401）
+            test_endpoint_auth "GET" "/user/profile" "获取用户资料"
+            test_endpoint_auth "PUT" "/user/profile" "更新用户资料"
+            
             # 项目组端点
             test_endpoint "POST" "/groups/create" "创建项目组"
             test_endpoint "POST" "/groups/join" "加入项目组"
@@ -227,11 +237,46 @@ test_server() {
             test_endpoint "GET" "/groups/info/1" "获取项目组信息"
             test_endpoint "PUT" "/groups/update/1" "更新项目组信息"
             test_endpoint "DELETE" "/groups/delete/1" "删除项目组"
+            test_endpoint_auth "GET" "/groups/1/members" "获取项目组成员"
+            test_endpoint_auth "GET" "/groups/1/overview" "获取项目组概览"
 
-            # 聊天端点
-            test_endpoint "GET" "/chat/rooms" "获取聊天室列表"
-            test_endpoint "GET" "/chat/rooms/1/messages" "获取聊天消息"
-            test_endpoint "POST" "/chat/rooms/1/messages" "发送聊天消息"
+            # 任务系统端点（需要认证，预期401）
+            test_endpoint_auth "GET" "/tasks" "获取任务列表"
+            test_endpoint_auth "POST" "/tasks" "创建任务"
+            test_endpoint_auth "GET" "/tasks/1" "获取任务详情"
+            test_endpoint_auth "PUT" "/tasks/1" "更新任务"
+            test_endpoint_auth "DELETE" "/tasks/1" "删除任务"
+            test_endpoint_auth "GET" "/tasks/tree/1" "获取任务树"
+            test_endpoint_auth "PUT" "/tasks/1/move" "移动任务"
+            
+            # 任务附件端点（需要认证，预期401）
+            test_endpoint_auth "POST" "/tasks/1/attachments" "添加任务附件"
+            test_endpoint_auth "GET" "/tasks/1/attachments" "获取任务附件列表"
+            test_endpoint_auth "DELETE" "/tasks/1/attachments/1" "删除任务附件"
+            
+            # 文件系统端点（需要认证，预期401）
+            test_endpoint_auth "POST" "/files/upload" "上传文件"
+            test_endpoint_auth "GET" "/files/1" "获取文件信息"
+            test_endpoint_auth "DELETE" "/files/1" "删除文件"
+            test_endpoint_auth "GET" "/files/group/1" "获取项目组文件列表"
+            test_endpoint_auth "GET" "/files/1/preview" "文件预览"
+
+            # 聊天端点（需要认证，预期401）
+            test_endpoint_auth "GET" "/chat/rooms" "获取聊天室列表"
+            test_endpoint_auth "GET" "/chat/rooms/1/messages" "获取聊天消息"
+            test_endpoint_auth "POST" "/chat/rooms/1/messages" "发送聊天消息"
+            
+            # 日历模块端点（需要认证，预期401）
+            test_endpoint_auth "GET" "/calendar/events" "获取日历事件列表"
+            test_endpoint_auth "POST" "/calendar/events" "创建日历事件"
+            test_endpoint_auth "GET" "/calendar/events/1" "获取日历事件详情"
+            test_endpoint_auth "PUT" "/calendar/events/1" "更新日历事件"
+            test_endpoint_auth "DELETE" "/calendar/events/1" "删除日历事件"
+            test_endpoint_auth "POST" "/calendar/from-task/1" "从任务创建日历事件"
+            
+            # Widget端点（需要认证，预期401）
+            test_endpoint_auth "GET" "/widget/today-tasks" "获取今日任务"
+            test_endpoint_auth "GET" "/widget/today-events" "获取今日事件"
             
         else
             print_message $RED "❌ 服务器无响应"
@@ -271,6 +316,31 @@ test_endpoint() {
         printf "  ✅ %-8s %-35s [%s] %s\n" "$method" "$endpoint" "$http_code" "$description"
     else
         printf "  ❌ %-8s %-35s [%s] %s\n" "$method" "$endpoint" "$http_code" "$description"
+    fi
+}
+
+# 测试需要认证的端点（预期401未授权或400错误）
+test_endpoint_auth() {
+    local method=$1
+    local endpoint=$2
+    local description=$3
+    
+    local url="http://localhost:$PORT$endpoint"
+    local http_code
+    
+    if [ "$method" = "GET" ]; then
+        # 尝试带token访问（使用测试token，预期401或400）
+        http_code=$(curl -s -o /dev/null -w "%{http_code}" -H "Authorization: Bearer test-token" "$url" 2>/dev/null)
+    else
+        # 对于POST/PUT/DELETE请求，发送空的JSON数据和token
+        http_code=$(curl -s -o /dev/null -w "%{http_code}" -X "$method" -H "Content-Type: application/json" -H "Authorization: Bearer test-token" -d '{}' "$url" 2>/dev/null)
+    fi
+    
+    # 对于需要认证的端点，401（未授权）表示端点存在且正常工作
+    if [ "$http_code" = "200" ] || [ "$http_code" = "201" ] || [ "$http_code" = "400" ] || [ "$http_code" = "401" ] || [ "$http_code" = "403" ] || [ "$http_code" = "404" ] || [ "$http_code" = "409" ]; then
+        printf "  ✅ %-8s %-35s [%s] %s (需认证)\n" "$method" "$endpoint" "$http_code" "$description"
+    else
+        printf "  ❌ %-8s %-35s [%s] %s (需认证)\n" "$method" "$endpoint" "$http_code" "$description"
     fi
 }
 

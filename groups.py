@@ -1,6 +1,8 @@
 from flask import Blueprint, request, jsonify
-from models import db, User, ProjectGroup
+from models import db, User, ProjectGroup, Task, CalendarEvent, SharedFile
 from sqlalchemy.exc import IntegrityError
+from auth import token_required
+from datetime import datetime
 import time
 
 groups_bp = Blueprint('groups', __name__, url_prefix='/groups')
@@ -436,4 +438,154 @@ def delete_group(group_id):
         return jsonify({
             'success': False,
             'message': f'Failed to delete group: {str(e)}'
+        }), 500
+
+@groups_bp.route('/<group_id>/members', methods=['GET'])
+@token_required
+def get_group_members(current_user, group_id):
+    """获取项目组成员列表接口"""
+    try:
+        # 验证项目组是否存在
+        group = ProjectGroup.query.filter_by(id=group_id).first()
+        if not group:
+            return jsonify({
+                'success': False,
+                'message': 'Group does not exist'
+            }), 404
+        
+        # 验证用户是否是项目组成员
+        if current_user not in group.members and group.leader_id != current_user.id:
+            return jsonify({
+                'success': False,
+                'message': 'Permission denied: Not a member of this group'
+            }), 403
+        
+        # 获取项目组成员信息
+        members_list = []
+        for member in group.members:
+            members_list.append({
+                'id': member.id,
+                'username': member.username,
+                'email': member.email,
+                'is_active': member.is_active
+            })
+        
+        # 添加负责人信息（如果负责人不在成员列表中）
+        leader = User.query.filter_by(id=group.leader_id).first()
+        if leader and not any(m['id'] == leader.id for m in members_list):
+            members_list.insert(0, {
+                'id': leader.id,
+                'username': leader.username,
+                'email': leader.email,
+                'is_active': leader.is_active,
+                'is_leader': True
+            })
+        else:
+            # 标记负责人
+            for member in members_list:
+                if member['id'] == group.leader_id:
+                    member['is_leader'] = True
+        
+        return jsonify({
+            'success': True,
+            'message': 'Members retrieved successfully',
+            'members': members_list,
+            'count': len(members_list)
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Failed to retrieve members: {str(e)}'
+        }), 500
+
+@groups_bp.route('/<group_id>/overview', methods=['GET'])
+@token_required
+def get_group_overview(current_user, group_id):
+    """获取项目组概览接口（用于Dashboard）"""
+    try:
+        # 验证项目组是否存在
+        group = ProjectGroup.query.filter_by(id=group_id).first()
+        if not group:
+            return jsonify({
+                'success': False,
+                'message': 'Group does not exist'
+            }), 404
+        
+        # 验证用户是否是项目组成员
+        if current_user not in group.members and group.leader_id != current_user.id:
+            return jsonify({
+                'success': False,
+                'message': 'Permission denied: Not a member of this group'
+            }), 403
+        
+        # 获取基本信息
+        group_dict = group.to_dict()
+        
+        # 获取成员统计
+        members_count = group.members.count()
+        
+        # 获取任务统计
+        tasks = Task.query.filter(
+            Task.project_id == group_id,
+            Task.is_deleted == False
+        ).all()
+        
+        tasks_total = len(tasks)
+        tasks_completed = len([t for t in tasks if t.status == 'completed'])
+        tasks_pending = len([t for t in tasks if t.status == 'pending'])
+        tasks_in_progress = len([t for t in tasks if t.status == 'in_progress'])
+        
+        # 获取今日任务
+        today = datetime.utcnow().strftime('%Y-%m-%d')
+        today_tasks = [t for t in tasks if t.due_date == today and t.status not in ['completed', 'cancelled']]
+        
+        # 获取文件统计
+        files = SharedFile.query.filter(
+            SharedFile.group_id == group_id,
+            SharedFile.is_deleted == False
+        ).all()
+        files_count = len(files)
+        
+        # 获取最近的日历事件（如果有项目组的日历事件）
+        # 这里简化处理，只统计项目组中成员的任务相关的日历事件
+        today_start = f'{today} 00:00:00'
+        today_end = f'{today} 23:59:59'
+        member_ids = [m.id for m in group.members] + [group.leader_id]
+        today_events = CalendarEvent.query.filter(
+            CalendarEvent.user_id.in_(member_ids),
+            CalendarEvent.is_deleted == False,
+            CalendarEvent.start_time >= today_start,
+            CalendarEvent.start_time <= today_end
+        ).count()
+        
+        overview = {
+            'group': group_dict,
+            'statistics': {
+                'members': members_count,
+                'tasks': {
+                    'total': tasks_total,
+                    'completed': tasks_completed,
+                    'pending': tasks_pending,
+                    'in_progress': tasks_in_progress,
+                    'today': len(today_tasks)
+                },
+                'files': files_count,
+                'events_today': today_events
+            },
+            'progress': {
+                'task_completion_rate': round((tasks_completed / tasks_total * 100) if tasks_total > 0 else 0, 2)
+            }
+        }
+        
+        return jsonify({
+            'success': True,
+            'message': 'Group overview retrieved successfully',
+            'overview': overview
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Failed to retrieve group overview: {str(e)}'
         }), 500

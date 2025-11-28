@@ -1,54 +1,76 @@
-2025-11-29 03:28:55,864 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2025-11-29 03:28:55,864 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_groups")
-2025-11-29 03:28:55,864 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
-2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("project_groups")
-2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("group_messages")
-2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message_read_status")
-2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:55,866 INFO sqlalchemy.engine.Engine COMMIT
+2025-11-29 04:27:55,367 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:27:55,367 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-11-29 04:27:55,368 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,368 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("oauth_accounts")
+2025-11-29 04:27:55,368 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,368 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_groups")
+2025-11-29 04:27:55,369 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,369 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("project_groups")
+2025-11-29 04:27:55,369 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,369 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("group_messages")
+2025-11-29 04:27:55,369 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,369 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message_read_status")
+2025-11-29 04:27:55,369 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,369 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tasks")
+2025-11-29 04:27:55,370 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,370 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("task_files")
+2025-11-29 04:27:55,370 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,370 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("shared_files")
+2025-11-29 04:27:55,370 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,370 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("calendar_events")
+2025-11-29 04:27:55,370 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,371 INFO sqlalchemy.engine.Engine COMMIT
  * Restarting with stat
-2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_groups")
-2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
-2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("project_groups")
-2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("group_messages")
-2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message_read_status")
-2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine [raw sql] ()
-2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine COMMIT
+2025-11-29 04:27:55,901 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:27:55,901 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-11-29 04:27:55,901 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,902 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("oauth_accounts")
+2025-11-29 04:27:55,902 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,902 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_groups")
+2025-11-29 04:27:55,902 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,902 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("project_groups")
+2025-11-29 04:27:55,902 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,903 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("group_messages")
+2025-11-29 04:27:55,903 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,903 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message_read_status")
+2025-11-29 04:27:55,903 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,903 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("tasks")
+2025-11-29 04:27:55,903 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,903 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("task_files")
+2025-11-29 04:27:55,903 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,904 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("shared_files")
+2025-11-29 04:27:55,904 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,904 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("calendar_events")
+2025-11-29 04:27:55,904 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 04:27:55,904 INFO sqlalchemy.engine.Engine COMMIT
  * Debugger is active!
  * Debugger PIN: 199-467-290
-(5628) wsgi starting up on http://0.0.0.0:5000
-(5628) accepted ('127.0.0.1', 37176)
-127.0.0.1 - - [29/Nov/2025 03:29:04] "GET / HTTP/1.1" 200 970 0.000902
-(5628) accepted ('127.0.0.1', 37178)
-127.0.0.1 - - [29/Nov/2025 03:29:04] "GET / HTTP/1.1" 200 970 0.000558
-(5628) accepted ('127.0.0.1', 37192)
-127.0.0.1 - - [29/Nov/2025 03:29:04] "GET / HTTP/1.1" 200 970 0.000726
-(5628) accepted ('127.0.0.1', 37206)
-127.0.0.1 - - [29/Nov/2025 03:29:04] "GET /health HTTP/1.1" 200 238 0.000518
-(5628) accepted ('127.0.0.1', 37216)
-127.0.0.1 - - [29/Nov/2025 03:29:04] "GET /auth/status HTTP/1.1" 200 237 0.000508
-(5628) accepted ('127.0.0.1', 37228)
-127.0.0.1 - - [29/Nov/2025 03:29:04] "POST /auth/register HTTP/1.1" 400 209 0.000643
-(5628) accepted ('127.0.0.1', 37242)
-127.0.0.1 - - [29/Nov/2025 03:29:04] "POST /auth/login HTTP/1.1" 400 209 0.000579
-(5628) accepted ('127.0.0.1', 37244)
-127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /auth/logout HTTP/1.1" 400 209 0.000594
-(5628) accepted ('127.0.0.1', 37250)
-127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /groups/create HTTP/1.1" 400 209 0.000482
-(5628) accepted ('127.0.0.1', 37254)
-127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /groups/join HTTP/1.1" 400 209 0.000622
-(5628) accepted ('127.0.0.1', 37262)
-127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /groups/join-by-code HTTP/1.1" 400 209 0.000505
-(5628) accepted ('127.0.0.1', 37272)
+(77380) wsgi starting up on http://0.0.0.0:5000
+(77380) accepted ('127.0.0.1', 49552)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET / HTTP/1.1" 200 970 0.000826
+(77380) accepted ('127.0.0.1', 49554)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET / HTTP/1.1" 200 970 0.000654
+(77380) accepted ('127.0.0.1', 49564)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET / HTTP/1.1" 200 970 0.000613
+(77380) accepted ('127.0.0.1', 49568)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /health HTTP/1.1" 200 238 0.000562
+(77380) accepted ('127.0.0.1', 49572)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /auth/status HTTP/1.1" 200 237 0.000522
+(77380) accepted ('127.0.0.1', 49578)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /auth/register HTTP/1.1" 400 209 0.000618
+(77380) accepted ('127.0.0.1', 49588)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /auth/login HTTP/1.1" 400 209 0.000610
+(77380) accepted ('127.0.0.1', 49592)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /auth/logout HTTP/1.1" 400 209 0.000692
+(77380) accepted ('127.0.0.1', 49606)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /auth/google/login HTTP/1.1" 400 209 0.000526
+(77380) accepted ('127.0.0.1', 49616)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /auth/google/callback HTTP/1.1" 400 209 0.000563
+(77380) accepted ('127.0.0.1', 49632)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /auth/github/login HTTP/1.1" 400 209 0.000628
+(77380) accepted ('127.0.0.1', 49640)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /auth/github/callback HTTP/1.1" 400 209 0.000617
+(77380) accepted ('127.0.0.1', 49654)
 ToDoList服务器启动中...
 监听地址: http://0.0.0.0:5000
 可用接口:
@@ -69,39 +91,1648 @@ ToDoList服务器启动中...
 - GET /chat/rooms/<room_id>/messages - 获取聊天消息
 - POST /chat/rooms/<room_id>/messages - 发送聊天消息
 - WebSocket: subscribe/unsubscribe - 实时聊天功能
-2025-11-29 03:29:05,048 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2025-11-29 03:29:05,050 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+2025-11-29 04:28:08,182 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,185 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,185 INFO sqlalchemy.engine.Engine [generated in 0.00019s] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,186 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /user/profile HTTP/1.1" 401 183 0.018035
+(77380) accepted ('127.0.0.1', 49660)
+2025-11-29 04:28:08,195 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,195 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,195 INFO sqlalchemy.engine.Engine [cached since 0.01015s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,195 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "PUT /user/profile HTTP/1.1" 401 183 0.001858
+(77380) accepted ('127.0.0.1', 49672)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /groups/create HTTP/1.1" 400 209 0.000577
+(77380) accepted ('127.0.0.1', 49674)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /groups/join HTTP/1.1" 400 209 0.000501
+(77380) accepted ('127.0.0.1', 49680)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /groups/join-by-code HTTP/1.1" 400 209 0.000508
+(77380) accepted ('127.0.0.1', 49694)
+2025-11-29 04:28:08,229 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,229 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
 FROM users 
 WHERE users.id = ?
  LIMIT ? OFFSET ?
-2025-11-29 03:29:05,050 INFO sqlalchemy.engine.Engine [generated in 0.00016s] ('1', 1, 0)
-2025-11-29 03:29:05,051 INFO sqlalchemy.engine.Engine ROLLBACK
-127.0.0.1 - - [29/Nov/2025 03:29:05] "GET /groups/list/1 HTTP/1.1" 404 206 0.009328
-(5628) accepted ('127.0.0.1', 37288)
-2025-11-29 03:29:05,059 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2025-11-29 03:29:05,062 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+2025-11-29 04:28:08,230 INFO sqlalchemy.engine.Engine [generated in 0.00016s] ('1', 1, 0)
+2025-11-29 04:28:08,230 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /groups/list/1 HTTP/1.1" 404 206 0.002676
+(77380) accepted ('127.0.0.1', 49706)
+2025-11-29 04:28:08,239 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,240 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
 FROM project_groups 
 WHERE project_groups.id = ?
  LIMIT ? OFFSET ?
-2025-11-29 03:29:05,062 INFO sqlalchemy.engine.Engine [generated in 0.00019s] ('1', 1, 0)
-2025-11-29 03:29:05,063 INFO sqlalchemy.engine.Engine ROLLBACK
-127.0.0.1 - - [29/Nov/2025 03:29:05] "GET /groups/info/1 HTTP/1.1" 404 207 0.004547
-(5628) accepted ('127.0.0.1', 37292)
-127.0.0.1 - - [29/Nov/2025 03:29:05] "PUT /groups/update/1 HTTP/1.1" 400 209 0.000703
-(5628) accepted ('127.0.0.1', 37298)
-2025-11-29 03:29:05,080 INFO sqlalchemy.engine.Engine BEGIN (implicit)
-2025-11-29 03:29:05,080 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+2025-11-29 04:28:08,240 INFO sqlalchemy.engine.Engine [generated in 0.00016s] ('1', 1, 0)
+2025-11-29 04:28:08,241 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /groups/info/1 HTTP/1.1" 404 207 0.003170
+(77380) accepted ('127.0.0.1', 49718)
+127.0.0.1 - - [29/Nov/2025 04:28:08] "PUT /groups/update/1 HTTP/1.1" 400 209 0.000556
+(77380) accepted ('127.0.0.1', 49722)
+2025-11-29 04:28:08,258 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,258 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
 FROM project_groups 
 WHERE project_groups.id = ?
  LIMIT ? OFFSET ?
-2025-11-29 03:29:05,080 INFO sqlalchemy.engine.Engine [cached since 0.01906s ago] ('1', 1, 0)
-2025-11-29 03:29:05,081 INFO sqlalchemy.engine.Engine ROLLBACK
-127.0.0.1 - - [29/Nov/2025 03:29:05] "DELETE /groups/delete/1 HTTP/1.1" 404 207 0.001697
-(5628) accepted ('127.0.0.1', 37308)
-127.0.0.1 - - [29/Nov/2025 03:29:05] "GET /chat/rooms HTTP/1.1" 401 209 0.000557
-(5628) accepted ('127.0.0.1', 37310)
-127.0.0.1 - - [29/Nov/2025 03:29:05] "GET /chat/rooms/1/messages HTTP/1.1" 401 209 0.000580
-(5628) accepted ('127.0.0.1', 37316)
-127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /chat/rooms/1/messages HTTP/1.1" 401 209 0.000583
-(5628) accepted ('204.76.203.52', 58442)
-204.76.203.52 - - [29/Nov/2025 03:30:45] "CONNECT baidu.com:443 HTTP/1.1" 404 235 0.000491
+2025-11-29 04:28:08,258 INFO sqlalchemy.engine.Engine [cached since 0.01797s ago] ('1', 1, 0)
+2025-11-29 04:28:08,259 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "DELETE /groups/delete/1 HTTP/1.1" 404 207 0.001901
+(77380) accepted ('127.0.0.1', 49736)
+2025-11-29 04:28:08,267 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,267 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,268 INFO sqlalchemy.engine.Engine [cached since 0.08269s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,268 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /groups/1/members HTTP/1.1" 401 183 0.001851
+(77380) accepted ('127.0.0.1', 49742)
+2025-11-29 04:28:08,276 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,277 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,277 INFO sqlalchemy.engine.Engine [cached since 0.09202s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,277 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /groups/1/overview HTTP/1.1" 401 183 0.001867
+(77380) accepted ('127.0.0.1', 49758)
+2025-11-29 04:28:08,286 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,286 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,286 INFO sqlalchemy.engine.Engine [cached since 0.1016s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,287 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /tasks HTTP/1.1" 401 183 0.001836
+(77380) accepted ('127.0.0.1', 49770)
+2025-11-29 04:28:08,295 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,296 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,296 INFO sqlalchemy.engine.Engine [cached since 0.1109s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,296 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /tasks HTTP/1.1" 401 183 0.001767
+(77380) accepted ('127.0.0.1', 49786)
+2025-11-29 04:28:08,305 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,305 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,305 INFO sqlalchemy.engine.Engine [cached since 0.1201s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,305 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /tasks/1 HTTP/1.1" 401 183 0.001667
+(77380) accepted ('127.0.0.1', 49796)
+2025-11-29 04:28:08,314 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,314 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,314 INFO sqlalchemy.engine.Engine [cached since 0.1294s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,315 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "PUT /tasks/1 HTTP/1.1" 401 183 0.001687
+(77380) accepted ('127.0.0.1', 49798)
+2025-11-29 04:28:08,323 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,324 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,324 INFO sqlalchemy.engine.Engine [cached since 0.1389s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,324 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "DELETE /tasks/1 HTTP/1.1" 401 183 0.001885
+(77380) accepted ('127.0.0.1', 49814)
+2025-11-29 04:28:08,333 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,333 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,333 INFO sqlalchemy.engine.Engine [cached since 0.1483s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,334 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /tasks/tree/1 HTTP/1.1" 401 183 0.001667
+(77380) accepted ('127.0.0.1', 49826)
+2025-11-29 04:28:08,342 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,343 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,343 INFO sqlalchemy.engine.Engine [cached since 0.1579s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,343 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "PUT /tasks/1/move HTTP/1.1" 401 183 0.001776
+(77380) accepted ('127.0.0.1', 49828)
+2025-11-29 04:28:08,352 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,352 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,352 INFO sqlalchemy.engine.Engine [cached since 0.1676s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,353 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /tasks/1/attachments HTTP/1.1" 401 183 0.001810
+(77380) accepted ('127.0.0.1', 49844)
+2025-11-29 04:28:08,362 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,362 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,362 INFO sqlalchemy.engine.Engine [cached since 0.1772s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,363 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /tasks/1/attachments HTTP/1.1" 401 183 0.001779
+(77380) accepted ('127.0.0.1', 49854)
+2025-11-29 04:28:08,371 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,372 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,372 INFO sqlalchemy.engine.Engine [cached since 0.187s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,372 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "DELETE /tasks/1/attachments/1 HTTP/1.1" 401 183 0.001848
+(77380) accepted ('127.0.0.1', 49862)
+2025-11-29 04:28:08,381 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,381 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,381 INFO sqlalchemy.engine.Engine [cached since 0.1965s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,382 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /files/upload HTTP/1.1" 401 183 0.001776
+(77380) accepted ('127.0.0.1', 49864)
+2025-11-29 04:28:08,390 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,391 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,391 INFO sqlalchemy.engine.Engine [cached since 0.2059s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,391 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /files/1 HTTP/1.1" 401 183 0.002018
+(77380) accepted ('127.0.0.1', 49880)
+2025-11-29 04:28:08,400 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,401 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,401 INFO sqlalchemy.engine.Engine [cached since 0.2159s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,401 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "DELETE /files/1 HTTP/1.1" 401 183 0.001781
+(77380) accepted ('127.0.0.1', 49894)
+2025-11-29 04:28:08,410 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,410 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,410 INFO sqlalchemy.engine.Engine [cached since 0.2254s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,411 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /files/group/1 HTTP/1.1" 401 183 0.001721
+(77380) accepted ('127.0.0.1', 49910)
+2025-11-29 04:28:08,419 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,419 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,419 INFO sqlalchemy.engine.Engine [cached since 0.2346s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,420 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /files/1/preview HTTP/1.1" 401 183 0.001640
+(77380) accepted ('127.0.0.1', 49918)
+2025-11-29 04:28:08,428 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,429 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,429 INFO sqlalchemy.engine.Engine [cached since 0.2439s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,429 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /chat/rooms HTTP/1.1" 401 183 0.001734
+(77380) accepted ('127.0.0.1', 49928)
+2025-11-29 04:28:08,438 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,438 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,438 INFO sqlalchemy.engine.Engine [cached since 0.2535s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,439 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /chat/rooms/1/messages HTTP/1.1" 401 183 0.001843
+(77380) accepted ('127.0.0.1', 49936)
+2025-11-29 04:28:08,448 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,448 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,448 INFO sqlalchemy.engine.Engine [cached since 0.2634s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,449 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /chat/rooms/1/messages HTTP/1.1" 401 183 0.001703
+(77380) accepted ('127.0.0.1', 49952)
+2025-11-29 04:28:08,457 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,457 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,457 INFO sqlalchemy.engine.Engine [cached since 0.2726s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,458 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /calendar/events HTTP/1.1" 401 183 0.001778
+(77380) accepted ('127.0.0.1', 49960)
+2025-11-29 04:28:08,467 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,467 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,467 INFO sqlalchemy.engine.Engine [cached since 0.2822s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,467 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /calendar/events HTTP/1.1" 401 183 0.001812
+(77380) accepted ('127.0.0.1', 49964)
+2025-11-29 04:28:08,476 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,476 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,476 INFO sqlalchemy.engine.Engine [cached since 0.2912s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,476 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /calendar/events/1 HTTP/1.1" 401 183 0.001680
+(77380) accepted ('127.0.0.1', 49978)
+2025-11-29 04:28:08,485 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,485 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,485 INFO sqlalchemy.engine.Engine [cached since 0.3005s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,486 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "PUT /calendar/events/1 HTTP/1.1" 401 183 0.001662
+(77380) accepted ('127.0.0.1', 49994)
+2025-11-29 04:28:08,495 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,495 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,495 INFO sqlalchemy.engine.Engine [cached since 0.3102s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,496 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "DELETE /calendar/events/1 HTTP/1.1" 401 183 0.001760
+(77380) accepted ('127.0.0.1', 50002)
+2025-11-29 04:28:08,504 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,505 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,505 INFO sqlalchemy.engine.Engine [cached since 0.3199s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,505 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "POST /calendar/from-task/1 HTTP/1.1" 401 183 0.001733
+(77380) accepted ('127.0.0.1', 50010)
+2025-11-29 04:28:08,516 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,516 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,516 INFO sqlalchemy.engine.Engine [cached since 0.3311s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,517 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /widget/today-tasks HTTP/1.1" 401 183 0.001885
+(77380) accepted ('127.0.0.1', 50024)
+2025-11-29 04:28:08,526 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:28:08,526 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:28:08,526 INFO sqlalchemy.engine.Engine [cached since 0.3414s ago] ('test-token', 'test-token', 'test-token', 1, 0)
+2025-11-29 04:28:08,527 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 04:28:08] "GET /widget/today-events HTTP/1.1" 401 183 0.001993
+(77380) accepted ('221.221.236.165', 8393)
+2025-11-29 04:29:50,594 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:29:50,594 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:29:50,594 INFO sqlalchemy.engine.Engine [cached since 102.4s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:29:50,595 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:29:50,595 INFO sqlalchemy.engine.Engine [cached since 102.4s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:29:50,600 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:29:50,600 INFO sqlalchemy.engine.Engine [generated in 0.00288s] ('dae78f6d8dad4ee5',)
+2025-11-29 04:29:50,606 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:29:50,606 INFO sqlalchemy.engine.Engine [generated in 0.00032s] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:29:50,607 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:29:50] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.065852
+2025-11-29 04:30:35,562 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:35,562 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:35,562 INFO sqlalchemy.engine.Engine [cached since 147.4s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:35,563 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:35,563 INFO sqlalchemy.engine.Engine [cached since 147.3s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:35,563 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:35,564 INFO sqlalchemy.engine.Engine [cached since 44.97s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:35,564 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:35,564 INFO sqlalchemy.engine.Engine [cached since 44.96s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:35,564 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:35] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.010657
+2025-11-29 04:30:36,380 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:36,380 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:36,380 INFO sqlalchemy.engine.Engine [cached since 148.2s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:36,381 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:36,381 INFO sqlalchemy.engine.Engine [cached since 148.1s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:36,382 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:36,382 INFO sqlalchemy.engine.Engine [cached since 45.78s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:36,383 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:36,383 INFO sqlalchemy.engine.Engine [cached since 45.78s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:36,383 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:36] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.011202
+2025-11-29 04:30:37,031 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:37,031 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:37,031 INFO sqlalchemy.engine.Engine [cached since 148.8s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:37,032 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:37,032 INFO sqlalchemy.engine.Engine [cached since 148.8s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:37,032 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:37,032 INFO sqlalchemy.engine.Engine [cached since 46.44s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:37,033 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:37,033 INFO sqlalchemy.engine.Engine [cached since 46.43s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:37,033 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:37] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.010437
+2025-11-29 04:30:37,531 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:37,531 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:37,531 INFO sqlalchemy.engine.Engine [cached since 149.3s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:37,532 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:37,532 INFO sqlalchemy.engine.Engine [cached since 149.3s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:37,532 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:37,532 INFO sqlalchemy.engine.Engine [cached since 46.94s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:37,534 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:37,534 INFO sqlalchemy.engine.Engine [cached since 46.93s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:37,534 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:37] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.011633
+2025-11-29 04:30:37,964 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:37,964 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:37,964 INFO sqlalchemy.engine.Engine [cached since 149.8s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:37,965 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:37,965 INFO sqlalchemy.engine.Engine [cached since 149.7s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:37,965 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:37,965 INFO sqlalchemy.engine.Engine [cached since 47.37s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:37,966 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:37,966 INFO sqlalchemy.engine.Engine [cached since 47.36s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:37,966 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:37] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.010581
+2025-11-29 04:30:38,230 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:38,230 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,230 INFO sqlalchemy.engine.Engine [cached since 150s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:38,230 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,231 INFO sqlalchemy.engine.Engine [cached since 150s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:38,231 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:38,231 INFO sqlalchemy.engine.Engine [cached since 47.63s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:38,232 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,232 INFO sqlalchemy.engine.Engine [cached since 47.63s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:38,232 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:38] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.010765
+2025-11-29 04:30:38,412 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:38,412 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,412 INFO sqlalchemy.engine.Engine [cached since 150.2s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:38,413 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,413 INFO sqlalchemy.engine.Engine [cached since 150.2s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:38,413 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:38,414 INFO sqlalchemy.engine.Engine [cached since 47.82s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:38,414 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,414 INFO sqlalchemy.engine.Engine [cached since 47.81s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:38,414 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:38] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.010762
+2025-11-29 04:30:38,562 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:38,562 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,562 INFO sqlalchemy.engine.Engine [cached since 150.4s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:38,563 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,563 INFO sqlalchemy.engine.Engine [cached since 150.3s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:38,563 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:38,563 INFO sqlalchemy.engine.Engine [cached since 47.97s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:38,564 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,564 INFO sqlalchemy.engine.Engine [cached since 47.96s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:38,564 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:38] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.010900
+2025-11-29 04:30:38,676 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:38,676 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,676 INFO sqlalchemy.engine.Engine [cached since 150.5s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:38,677 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,677 INFO sqlalchemy.engine.Engine [cached since 150.4s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:38,677 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:38,677 INFO sqlalchemy.engine.Engine [cached since 48.08s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:38,678 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:38,678 INFO sqlalchemy.engine.Engine [cached since 48.07s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:38,678 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:38] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.010478
+(77380) accepted ('221.221.236.165', 8471)
+2025-11-29 04:30:43,705 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:43,706 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:43,706 INFO sqlalchemy.engine.Engine [cached since 155.5s ago] ('df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:43,707 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.leader_id = ?
+2025-11-29 04:30:43,707 INFO sqlalchemy.engine.Engine [generated in 0.00016s] ('df0e8a7912834ce5',)
+2025-11-29 04:30:43,709 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups, user_groups 
+WHERE ? = user_groups.user_id AND project_groups.id = user_groups.group_id
+2025-11-29 04:30:43,709 INFO sqlalchemy.engine.Engine [generated in 0.00013s] ('df0e8a7912834ce5',)
+2025-11-29 04:30:43,710 INFO sqlalchemy.engine.Engine ROLLBACK
+221.221.236.165 - - [29/Nov/2025 04:30:43] "GET /groups/list/df0e8a7912834ce5 HTTP/1.1" 200 576 0.005131
+2025-11-29 04:30:51,612 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:51,612 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:51,612 INFO sqlalchemy.engine.Engine [cached since 163.4s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:51,613 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:51,613 INFO sqlalchemy.engine.Engine [cached since 163.4s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:51,614 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:51,614 INFO sqlalchemy.engine.Engine [cached since 61.02s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:51,614 INFO sqlalchemy.engine.Engine SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:51,614 INFO sqlalchemy.engine.Engine [cached since 61.01s ago] ('dae78f6d8dad4ee5', 20, 0)
+2025-11-29 04:30:51,615 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: group_messages.task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 51, in get_messages
+    .paginate(page=page, per_page=per_page, error_out=False)
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/query.py", line 98, in paginate
+    return QueryPagination(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 72, in __init__
+    items = self._query_items()
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_sqlalchemy/pagination.py", line 358, in _query_items
+    out = query.limit(self.per_page).offset(self._query_offset).all()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: group_messages.task_id
+[SQL: SELECT group_messages.id AS group_messages_id, group_messages.group_id AS group_messages_group_id, group_messages.sender_id AS group_messages_sender_id, group_messages.message_type AS group_messages_message_type, group_messages.content AS group_messages_content, group_messages.file_url AS group_messages_file_url, group_messages.task_id AS group_messages_task_id, group_messages.reply_to_id AS group_messages_reply_to_id, group_messages.sent_at AS group_messages_sent_at, group_messages.updated_time AS group_messages_updated_time, group_messages.is_deleted AS group_messages_is_deleted 
+FROM group_messages 
+WHERE group_messages.group_id = ? ORDER BY group_messages.sent_at DESC
+ LIMIT ? OFFSET ?]
+[parameters: ('dae78f6d8dad4ee5', 20, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:51] "GET /chat/rooms/dae78f6d8dad4ee5/messages?page=1&pageSize=50 HTTP/1.1" 500 53981 0.010858
+2025-11-29 04:30:57,419 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 04:30:57,419 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ? OR users.username = ? OR users.email = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:57,419 INFO sqlalchemy.engine.Engine [cached since 169.2s ago] ('df0e8a7912834ce5', 'df0e8a7912834ce5', 'df0e8a7912834ce5', 1, 0)
+2025-11-29 04:30:57,420 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 04:30:57,420 INFO sqlalchemy.engine.Engine [cached since 169.2s ago] ('dae78f6d8dad4ee5', 1, 0)
+2025-11-29 04:30:57,421 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users, user_groups 
+WHERE ? = user_groups.group_id AND users.id = user_groups.user_id
+2025-11-29 04:30:57,421 INFO sqlalchemy.engine.Engine [cached since 66.82s ago] ('dae78f6d8dad4ee5',)
+2025-11-29 04:30:57,422 INFO sqlalchemy.engine.Engine INSERT INTO group_messages (id, group_id, sender_id, message_type, content, file_url, task_id, reply_to_id, sent_at, updated_time, is_deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-11-29 04:30:57,422 INFO sqlalchemy.engine.Engine [generated in 0.00021s] ('3f770ac504ea4116', 'dae78f6d8dad4ee5', 'df0e8a7912834ce5', 'text', 'nihao1', None, None, None, '2025-11-28 20:30:57', 1764361857, 0)
+2025-11-29 04:30:57,423 INFO sqlalchemy.engine.Engine ROLLBACK
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: table group_messages has no column named task_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/auth.py", line 197, in decorated
+    return f(current_user=user, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ToDoListServer/chat.py", line 154, in send_message
+    db.session.commit()
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 4447, in _flush
+    with util.safe_reraise():
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1043, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib64/python3.11/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table group_messages has no column named task_id
+[SQL: INSERT INTO group_messages (id, group_id, sender_id, message_type, content, file_url, task_id, reply_to_id, sent_at, updated_time, is_deleted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('3f770ac504ea4116', 'dae78f6d8dad4ee5', 'df0e8a7912834ce5', 'text', 'nihao1', None, None, None, '2025-11-28 20:30:57', 1764361857, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+221.221.236.165 - - [29/Nov/2025 04:30:57] "POST /chat/rooms/dae78f6d8dad4ee5/messages HTTP/1.1" 500 61302 0.017134

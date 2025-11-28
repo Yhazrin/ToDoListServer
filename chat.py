@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from models import db, User, ProjectGroup, GroupMessage
+from models import db, User, ProjectGroup, GroupMessage, Task, SharedFile
 from auth import token_required
 
 chat_bp = Blueprint('chat', __name__)
@@ -53,14 +53,27 @@ def get_messages(current_user, room_id):
     response = []
     for msg in messages.items:
         sender = User.query.get(msg.sender_id)
-        response.append({
+        message_dict = {
             'id': msg.id,
             'roomId': msg.group_id,
             'senderId': msg.sender_id,
             'senderName': sender.username if sender else 'Unknown',
+            'messageType': msg.message_type,
             'content': msg.content,
             'timestamp': msg.sent_at
-        })
+        }
+        
+        # 添加文件URL（如果是文件类型消息）
+        if msg.file_url:
+            message_dict['fileUrl'] = msg.file_url
+        
+        # 添加任务信息（如果是任务类型消息）
+        if msg.task_id:
+            task = Task.query.filter_by(id=msg.task_id, is_deleted=False).first()
+            if task:
+                message_dict['task'] = task.to_dict()
+        
+        response.append(message_dict)
 
     return jsonify({
         'messages': response,
@@ -73,21 +86,69 @@ def get_messages(current_user, room_id):
 @chat_bp.route('/rooms/<room_id>/messages', methods=['POST'])
 @token_required
 def send_message(current_user, room_id):
-    """向指定聊天室发送消息"""
+    """向指定聊天室发送消息（支持多种消息类型）"""
     data = request.get_json()
-    if not data or 'content' not in data:
-        return jsonify({'message': 'Invalid request body'}), 400
+    if not data:
+        return jsonify({'success': False, 'message': 'Invalid request body'}), 400
 
     # 验证用户是否是该项目组成员
     group = ProjectGroup.query.filter_by(id=room_id).first()
     if not group or current_user not in group.members:
-        return jsonify({'message': 'Chat room not found or access denied'}), 404
+        return jsonify({'success': False, 'message': 'Chat room not found or access denied'}), 404
 
+    # 获取消息类型，默认为text
+    message_type = data.get('messageType', 'text')
+    if message_type not in ['text', 'image', 'video', 'audio', 'file', 'task']:
+        return jsonify({'success': False, 'message': 'Invalid message type'}), 400
+    
+    content = data.get('content', '')
+    file_url = data.get('fileUrl')
+    task_id = data.get('taskId')
+    
+    # 验证文件URL（如果是文件类型消息）
+    if message_type in ['image', 'video', 'audio', 'file']:
+        if not file_url:
+            return jsonify({'success': False, 'message': f'File URL or File ID is required for {message_type} message'}), 400
+        
+        # 从file_url中提取文件ID（可能是完整URL或文件ID）
+        file_id = file_url
+        if '/' in file_url:
+            # 如果是URL，尝试提取文件ID（假设是/files/{fileId}格式）
+            parts = file_url.split('/')
+            file_id = parts[-1] if parts else file_url
+        
+        # 验证文件存在且有权限访问
+        file = SharedFile.query.filter_by(id=file_id, is_deleted=False).first()
+        if not file:
+            return jsonify({'success': False, 'message': 'File not found'}), 404
+        
+        # 检查权限
+        if file.user_id != current_user.id:
+            if file.group_id != room_id:
+                return jsonify({'success': False, 'message': 'Permission denied: File does not belong to this group'}), 403
+    
+    # 验证任务ID（如果是任务类型消息）
+    if message_type == 'task':
+        if not task_id:
+            return jsonify({'success': False, 'message': 'Task ID is required for task message'}), 400
+        
+        task = Task.query.filter_by(id=task_id, is_deleted=False).first()
+        if not task:
+            return jsonify({'success': False, 'message': 'Task not found'}), 404
+        
+        # 验证任务权限：任务所有者或项目组成员
+        if task.user_id != current_user.id:
+            if task.project_id != room_id:
+                return jsonify({'success': False, 'message': 'Permission denied: Task does not belong to this group'}), 403
+    
     # 创建新消息
     new_message = GroupMessage(
         group_id=room_id,
         sender_id=current_user.id,
-        content=data['content']
+        content=content,
+        message_type=message_type,
+        file_url=file_url,
+        task_id=task_id
     )
     db.session.add(new_message)
     db.session.commit()
@@ -99,9 +160,20 @@ def send_message(current_user, room_id):
         'roomId': new_message.group_id,
         'senderId': new_message.sender_id,
         'senderName': sender.username if sender else 'Unknown',
+        'messageType': new_message.message_type,
         'content': new_message.content,
         'timestamp': new_message.sent_at
     }
+    
+    # 添加文件URL
+    if new_message.file_url:
+        message_data['fileUrl'] = new_message.file_url
+    
+    # 添加任务信息
+    if new_message.task_id:
+        task = Task.query.filter_by(id=new_message.task_id, is_deleted=False).first()
+        if task:
+            message_data['task'] = task.to_dict()
 
     # 通过WebSocket广播新消息（可选，如果SocketIO可用）
     try:

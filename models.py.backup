@@ -1,0 +1,442 @@
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+from datetime import datetime, date
+import uuid
+import time
+
+db = SQLAlchemy()
+bcrypt = Bcrypt()
+
+# 用户和项目组的多对多关系表
+user_groups = db.Table('user_groups',
+    db.Column('user_id', db.String(16), db.ForeignKey('users.id'), primary_key=True),
+    db.Column('group_id', db.String(16), db.ForeignKey('project_groups.id'), primary_key=True),
+    db.Column('joined_at', db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+)
+
+class User(db.Model):
+    """用户模型"""
+    __tablename__ = 'users'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    username = db.Column(db.String(80), unique=True, nullable=False, index=True)
+    email = db.Column(db.String(120), unique=True, nullable=True, index=True)
+    password_hash = db.Column(db.String(128), nullable=False)
+    is_active = db.Column(db.Boolean, default=True)
+    
+    def __init__(self, username, password, email=None):
+        """初始化用户对象"""
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.username = username
+        self.email = email
+        self.set_password(password)
+    
+    def set_password(self, password):
+        """设置密码（加密存储）"""
+        self.password_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+    
+    def check_password(self, password):
+        """验证密码"""
+        return bcrypt.check_password_hash(self.password_hash, password)
+    
+    # 定义与项目组的多对多关系
+    project_groups = db.relationship('ProjectGroup', secondary=user_groups, backref=db.backref('members', lazy='dynamic'))
+    
+    # 定义与任务的关联关系
+    tasks = db.relationship('Task', backref='user', lazy='dynamic', foreign_keys='Task.user_id')
+    
+    def to_dict(self):
+        """转换为字典格式（不包含密码）"""
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'is_active': self.is_active
+        }
+    
+    def __repr__(self):
+        return f'<User {self.username}>'
+
+
+class ProjectGroup(db.Model):
+    """项目组模型"""
+    __tablename__ = 'project_groups'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    name = db.Column(db.String(80), unique=True, nullable=False, index=True)
+    project_title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text)
+    leader_id = db.Column(db.String(16), db.ForeignKey('users.id'), nullable=False)
+    start_date = db.Column(db.String(10))
+    due_date = db.Column(db.String(10), nullable=False)
+    is_active = db.Column(db.Boolean, default=True)
+    contact_info = db.Column(db.String(200))
+    invite_code = db.Column(db.String(8), unique=True, nullable=False, index=True)
+    
+    def __init__(self, name, project_title, leader_id, due_date, description=None, start_date=None, contact_info=None):
+        """初始化项目组对象"""
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.name = name
+        self.project_title = project_title
+        self.leader_id = leader_id
+        # 处理日期格式转换
+        if isinstance(due_date, date):
+            self.due_date = due_date.strftime('%Y-%m-%d')
+        else:
+            self.due_date = due_date
+        self.description = description
+        if isinstance(start_date, date):
+            self.start_date = start_date.strftime('%Y-%m-%d')
+        else:
+            self.start_date = start_date
+        self.contact_info = contact_info
+        # 生成唯一邀请码
+        self.invite_code = self._generate_invite_code()
+    
+    def _generate_invite_code(self):
+        """生成唯一的8位邀请码"""
+        import random
+        import string
+        
+        while True:
+            # 生成8位随机字符串，包含大小写字母和数字
+            code = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
+            
+            # 检查是否已存在相同的邀请码
+            existing = ProjectGroup.query.filter_by(invite_code=code).first()
+            if not existing:
+                return code
+    
+    def to_dict(self):
+        """转换为字典格式"""
+        return {
+            'id': self.id,
+            'name': self.name,
+            'project_title': self.project_title,
+            'description': self.description,
+            'leader_id': self.leader_id,
+            'start_date': self.start_date,
+            'due_date': self.due_date,
+            'is_active': self.is_active,
+            'contact_info': self.contact_info,
+            'invite_code': self.invite_code
+        }
+    
+    def __repr__(self):
+        return f'<ProjectGroup {self.name}>'
+
+
+class GroupMessage(db.Model):
+    """项目组聊天消息模型"""
+    __tablename__ = 'group_messages'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    group_id = db.Column(db.String(16), db.ForeignKey('project_groups.id'), nullable=False)
+    sender_id = db.Column(db.String(16), db.ForeignKey('users.id'), nullable=False)
+    message_type = db.Column(db.String(10), default='text')  # text, image, video, audio, file, task
+    content = db.Column(db.Text, nullable=False)
+    file_url = db.Column(db.String(500))
+    task_id = db.Column(db.String(16), db.ForeignKey('tasks.id'), nullable=True)  # 关联的任务ID（用于任务注入）
+    reply_to_id = db.Column(db.String(16), db.ForeignKey('group_messages.id'))
+    sent_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    updated_time = db.Column(db.Integer, default=lambda: int(time.time()))
+    is_deleted = db.Column(db.Boolean, default=False)
+    
+    def __init__(self, group_id, sender_id, content, message_type='text', file_url=None, task_id=None, reply_to_id=None):
+        """初始化消息对象"""
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.group_id = group_id
+        self.sender_id = sender_id
+        self.content = content
+        self.message_type = message_type
+        self.file_url = file_url
+        self.task_id = task_id
+        self.reply_to_id = reply_to_id
+    
+    def to_dict(self):
+        """转换为字典格式"""
+        return {
+            'id': self.id,
+            'group_id': self.group_id,
+            'sender_id': self.sender_id,
+            'message_type': self.message_type,
+            'content': self.content,
+            'file_url': self.file_url,
+            'task_id': self.task_id,
+            'reply_to_id': self.reply_to_id,
+            'sent_at': self.sent_at,
+            'updated_time': self.updated_time,
+            'is_deleted': self.is_deleted
+        }
+    
+    def __repr__(self):
+        return f'<GroupMessage {self.id}>'
+
+
+class MessageReadStatus(db.Model):
+    """消息已读状态模型"""
+    __tablename__ = 'message_read_status'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    message_id = db.Column(db.String(16), db.ForeignKey('group_messages.id'), nullable=False)
+    user_id = db.Column(db.String(16), db.ForeignKey('users.id'), nullable=False)
+    read_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    updated_time = db.Column(db.Integer, default=lambda: int(time.time()))
+    
+    # 创建唯一约束
+    __table_args__ = (db.UniqueConstraint('message_id', 'user_id', name='unique_user_message'),)
+    
+    def __init__(self, message_id, user_id):
+        """初始化已读状态对象"""
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.message_id = message_id
+        self.user_id = user_id
+    
+    def to_dict(self):
+        """转换为字典格式"""
+        return {
+            'id': self.id,
+            'message_id': self.message_id,
+            'user_id': self.user_id,
+            'read_at': self.read_at,
+            'updated_time': self.updated_time
+        }
+    
+    def __repr__(self):
+        return f'<MessageReadStatus {self.id}>'
+
+
+class Task(db.Model):
+    """任务模型"""
+    __tablename__ = 'tasks'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    user_id = db.Column(db.String(16), db.ForeignKey('users.id'), nullable=False, index=True)
+    project_id = db.Column(db.String(16), db.ForeignKey('project_groups.id'), nullable=True, index=True)
+    parent_task_id = db.Column(db.String(16), db.ForeignKey('tasks.id'), nullable=True, index=True)
+    title = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.Text)
+    status = db.Column(db.String(20), default='pending')  # pending, in_progress, completed, cancelled
+    priority = db.Column(db.String(10), default='medium')  # low, medium, high, urgent
+    due_date = db.Column(db.String(10))  # YYYY-MM-DD格式
+    created_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    updated_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    completed_at = db.Column(db.String(19))
+    is_deleted = db.Column(db.Boolean, default=False)
+    position = db.Column(db.Integer, default=0)  # 用于排序
+    
+    # 自引用关系：子任务
+    subtasks = db.relationship('Task', backref=db.backref('parent_task', remote_side=[id]), lazy='dynamic')
+    
+    def __init__(self, user_id, title, project_id=None, parent_task_id=None, description=None, 
+                 status='pending', priority='medium', due_date=None):
+        """初始化任务对象"""
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.user_id = user_id
+        self.project_id = project_id
+        self.parent_task_id = parent_task_id
+        self.title = title
+        self.description = description
+        self.status = status
+        self.priority = priority
+        if due_date:
+            if isinstance(due_date, date):
+                self.due_date = due_date.strftime('%Y-%m-%d')
+            else:
+                self.due_date = due_date
+    
+    def to_dict(self):
+        """转换为字典格式"""
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'project_id': self.project_id,
+            'parent_task_id': self.parent_task_id,
+            'title': self.title,
+            'description': self.description,
+            'status': self.status,
+            'priority': self.priority,
+            'due_date': self.due_date,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+            'completed_at': self.completed_at,
+            'is_deleted': self.is_deleted,
+            'position': self.position
+        }
+    
+    def __repr__(self):
+        return f'<Task {self.title}>'
+
+
+class TaskFile(db.Model):
+    """任务附件关联模型"""
+    __tablename__ = 'task_files'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    task_id = db.Column(db.String(16), db.ForeignKey('tasks.id'), nullable=False, index=True)
+    file_id = db.Column(db.String(16), db.ForeignKey('shared_files.id'), nullable=False, index=True)
+    created_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    
+    # 创建唯一约束
+    __table_args__ = (db.UniqueConstraint('task_id', 'file_id', name='unique_task_file'),)
+    
+    def __init__(self, task_id, file_id):
+        """初始化任务文件关联对象"""
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.task_id = task_id
+        self.file_id = file_id
+    
+    def to_dict(self):
+        """转换为字典格式"""
+        return {
+            'id': self.id,
+            'task_id': self.task_id,
+            'file_id': self.file_id,
+            'created_at': self.created_at
+        }
+    
+    def __repr__(self):
+        return f'<TaskFile {self.id}>'
+
+
+class SharedFile(db.Model):
+    """共享文件模型"""
+    __tablename__ = 'shared_files'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    user_id = db.Column(db.String(16), db.ForeignKey('users.id'), nullable=False, index=True)
+    group_id = db.Column(db.String(16), db.ForeignKey('project_groups.id'), nullable=True, index=True)
+    filename = db.Column(db.String(255), nullable=False)
+    file_path = db.Column(db.String(500), nullable=False)
+    file_type = db.Column(db.String(50))  # image, video, audio, document, other
+    file_size = db.Column(db.Integer)  # 文件大小（字节）
+    mime_type = db.Column(db.String(100))
+    thumbnail_path = db.Column(db.String(500))  # 缩略图路径（用于图片/视频预览）
+    created_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    updated_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    is_deleted = db.Column(db.Boolean, default=False)
+    
+    def __init__(self, user_id, filename, file_path, group_id=None, file_type=None, 
+                 file_size=None, mime_type=None, thumbnail_path=None):
+        """初始化共享文件对象"""
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.user_id = user_id
+        self.group_id = group_id
+        self.filename = filename
+        self.file_path = file_path
+        self.file_type = file_type
+        self.file_size = file_size
+        self.mime_type = mime_type
+        self.thumbnail_path = thumbnail_path
+    
+    def to_dict(self):
+        """转换为字典格式"""
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'group_id': self.group_id,
+            'filename': self.filename,
+            'file_path': self.file_path,
+            'file_type': self.file_type,
+            'file_size': self.file_size,
+            'mime_type': self.mime_type,
+            'thumbnail_path': self.thumbnail_path,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+            'is_deleted': self.is_deleted
+        }
+    
+    def __repr__(self):
+        return f'<SharedFile {self.filename}>'
+
+
+class OAuthAccount(db.Model):
+    """OAuth账户绑定模型"""
+    __tablename__ = 'oauth_accounts'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    user_id = db.Column(db.String(16), db.ForeignKey('users.id'), nullable=False, index=True)
+    provider = db.Column(db.String(20), nullable=False)  # google, github
+    provider_user_id = db.Column(db.String(100), nullable=False)  # OAuth提供商返回的用户ID
+    email = db.Column(db.String(120))
+    access_token = db.Column(db.Text)  # 访问令牌（加密存储）
+    refresh_token = db.Column(db.Text)  # 刷新令牌（加密存储）
+    token_expires_at = db.Column(db.String(19))
+    created_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    updated_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    
+    # 创建唯一约束：一个用户在同一个提供商只能绑定一个账户
+    __table_args__ = (db.UniqueConstraint('user_id', 'provider', name='unique_user_provider'),)
+    
+    def __init__(self, user_id, provider, provider_user_id, email=None, access_token=None, 
+                 refresh_token=None, token_expires_at=None):
+        """初始化OAuth账户对象"""
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.user_id = user_id
+        self.provider = provider
+        self.provider_user_id = provider_user_id
+        self.email = email
+        self.access_token = access_token
+        self.refresh_token = refresh_token
+        self.token_expires_at = token_expires_at
+    
+    def to_dict(self):
+        """转换为字典格式（不包含敏感信息）"""
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'provider': self.provider,
+            'email': self.email,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
+    
+    def __repr__(self):
+        return f'<OAuthAccount {self.provider}:{self.provider_user_id}>'
+
+
+class CalendarEvent(db.Model):
+    """日历事件模型"""
+    __tablename__ = 'calendar_events'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    user_id = db.Column(db.String(16), db.ForeignKey('users.id'), nullable=False, index=True)
+    task_id = db.Column(db.String(16), db.ForeignKey('tasks.id'), nullable=True, index=True)
+    title = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.Text)
+    start_time = db.Column(db.String(19), nullable=False)  # YYYY-MM-DD HH:MM:SS格式
+    end_time = db.Column(db.String(19), nullable=False)  # YYYY-MM-DD HH:MM:SS格式
+    location = db.Column(db.String(200))
+    created_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    updated_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    is_deleted = db.Column(db.Boolean, default=False)
+    
+    def __init__(self, user_id, title, start_time, end_time, task_id=None, description=None, location=None):
+        """初始化日历事件对象"""
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.user_id = user_id
+        self.task_id = task_id
+        self.title = title
+        self.description = description
+        self.start_time = start_time
+        self.end_time = end_time
+        self.location = location
+    
+    def to_dict(self):
+        """转换为字典格式"""
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'task_id': self.task_id,
+            'title': self.title,
+            'description': self.description,
+            'start_time': self.start_time,
+            'end_time': self.end_time,
+            'location': self.location,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+            'is_deleted': self.is_deleted
+        }
+    
+    def __repr__(self):
+        return f'<CalendarEvent {self.title}>'

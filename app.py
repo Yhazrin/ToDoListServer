@@ -6,10 +6,16 @@ from models import db, bcrypt
 from auth import auth_bp
 from groups import groups_bp
 from chat import chat_bp
+from user import user_bp
+from oauth import oauth_bp
+from tasks import tasks_bp
+from files import files_bp
+from calendar_routes import calendar_bp
+from widget import widget_bp
 import os
-import sockets
 
 socketio = SocketIO()
+import sockets  # 需要在 socketio 初始化后导入
 
 def create_app(config_name=None):
     """应用工厂函数"""
@@ -29,6 +35,12 @@ def create_app(config_name=None):
     app.register_blueprint(auth_bp)
     app.register_blueprint(groups_bp)
     app.register_blueprint(chat_bp, url_prefix='/chat')
+    app.register_blueprint(user_bp)
+    app.register_blueprint(oauth_bp)
+    app.register_blueprint(tasks_bp)
+    app.register_blueprint(files_bp)
+    app.register_blueprint(calendar_bp)
+    app.register_blueprint(widget_bp)
     
     # 全局错误处理
     @app.errorhandler(404)
