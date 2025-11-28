@@ -228,6 +228,7 @@ test_server() {
             # 用户资料端点（需要认证，预期401）
             test_endpoint_auth "GET" "/user/profile" "获取用户资料"
             test_endpoint_auth "PUT" "/user/profile" "更新用户资料"
+            test_endpoint_auth "GET" "/user/tasks" "获取当前用户任务列表"
             
             # 项目组端点
             test_endpoint "POST" "/groups/create" "创建项目组"

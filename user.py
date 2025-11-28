@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from models import db, User
+from models import db, User, Task
 from auth import token_required
 from sqlalchemy.exc import IntegrityError
 
@@ -87,3 +87,41 @@ def update_profile(current_user):
             'message': f'Failed to update profile: {str(e)}'
         }), 500
 
+@user_bp.route('/tasks', methods=['GET'])
+@token_required
+def get_my_tasks(current_user):
+    try:
+        status = request.args.get('status')
+        priority = request.args.get('priority')
+        due_start = request.args.get('dueStart')
+        due_end = request.args.get('dueEnd')
+        project_id = request.args.get('projectId')
+
+        query = Task.query.filter(Task.is_deleted == False, Task.user_id == current_user.id)
+
+        if status in ['pending', 'in_progress', 'completed', 'cancelled']:
+            query = query.filter(Task.status == status)
+
+        if priority in ['low', 'medium', 'high', 'urgent']:
+            query = query.filter(Task.priority == priority)
+
+        if project_id:
+            query = query.filter(Task.project_id == project_id)
+
+        if due_start:
+            query = query.filter(Task.due_date >= due_start)
+        if due_end:
+            query = query.filter(Task.due_date <= due_end)
+
+        tasks = query.order_by(Task.created_at.desc()).all()
+
+        return jsonify({
+            'success': True,
+            'message': 'Tasks retrieved successfully',
+            'tasks': [t.to_dict() for t in tasks]
+        }), 200
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Failed to retrieve tasks: {str(e)}'
+        }), 500
