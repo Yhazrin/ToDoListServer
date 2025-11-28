@@ -1,0 +1,912 @@
+2025-09-19 04:43:47,484 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 04:43:47,485 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-09-19 04:43:47,485 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-19 04:43:47,485 INFO sqlalchemy.engine.Engine COMMIT
+ToDoList服务器启动中...
+可用接口:
+- POST /auth/register - 用户注册
+- POST /auth/login - 用户登录
+- GET /auth/status - 服务状态
+- GET / - 服务信息
+- GET /health - 健康检查
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.2.8.15:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+2025-09-19 04:43:47,803 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 04:43:47,803 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-09-19 04:43:47,803 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-19 04:43:47,804 INFO sqlalchemy.engine.Engine COMMIT
+ * Debugger is active!
+ * Debugger PIN: 130-101-215
+ToDoList服务器启动中...
+可用接口:
+- POST /auth/register - 用户注册
+- POST /auth/login - 用户登录
+- GET /auth/status - 服务状态
+- GET / - 服务信息
+- GET /health - 健康检查
+2025-09-19 04:45:17,454 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 04:45:17,456 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 04:45:17,456 INFO sqlalchemy.engine.Engine [generated in 0.00016s] ('testuser', 1, 0)
+2025-09-19 04:45:17,457 INFO sqlalchemy.engine.Engine ROLLBACK
+223.72.84.77 - - [19/Sep/2025 04:45:17] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 04:45:29,240 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 04:45:29,240 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 04:45:29,240 INFO sqlalchemy.engine.Engine [cached since 11.78s ago] ('newuser', 1, 0)
+2025-09-19 04:45:29,241 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 04:45:29,241 INFO sqlalchemy.engine.Engine [generated in 0.00012s] ('newuser@example.com', 1, 0)
+2025-09-19 04:45:29,508 INFO sqlalchemy.engine.Engine INSERT INTO users (id, username, email, password_hash, is_active) VALUES (?, ?, ?, ?, ?)
+2025-09-19 04:45:29,509 INFO sqlalchemy.engine.Engine [generated in 0.00023s] ('8662beaae5e749bd', 'newuser', 'newuser@example.com', '$2b$12$9MUoiXuYQM0blkhMjzHOGuKRFQLqsYSStdLE3JZTbYgaAxgu4p68S', 1)
+2025-09-19 04:45:29,509 INFO sqlalchemy.engine.Engine COMMIT
+2025-09-19 04:45:29,513 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 04:45:29,514 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ?
+2025-09-19 04:45:29,514 INFO sqlalchemy.engine.Engine [generated in 0.00010s] ('8662beaae5e749bd',)
+2025-09-19 04:45:29,515 INFO sqlalchemy.engine.Engine ROLLBACK
+223.72.84.77 - - [19/Sep/2025 04:45:29] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2025-09-19 04:45:39,535 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 04:45:39,536 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 04:45:39,536 INFO sqlalchemy.engine.Engine [generated in 0.00014s] ('newuser', 'newuser', 1, 0)
+2025-09-19 04:45:39,802 INFO sqlalchemy.engine.Engine ROLLBACK
+223.72.84.77 - - [19/Sep/2025 04:45:39] "POST /auth/login HTTP/1.1" 200 -
+180.101.244.16 - - [19/Sep/2025 04:46:27] "[33mGET /auth/test HTTP/1.1[0m" 404 -
+2025-09-19 04:49:22,836 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 04:49:22,836 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 04:49:22,836 INFO sqlalchemy.engine.Engine [cached since 223.3s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 04:49:23,106 INFO sqlalchemy.engine.Engine ROLLBACK
+223.72.84.77 - - [19/Sep/2025 04:49:23] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 04:49:25,924 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 04:49:25,924 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 04:49:25,924 INFO sqlalchemy.engine.Engine [cached since 226.4s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 04:49:26,189 INFO sqlalchemy.engine.Engine ROLLBACK
+223.72.84.77 - - [19/Sep/2025 04:49:26] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 04:49:27,167 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 04:49:27,168 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 04:49:27,168 INFO sqlalchemy.engine.Engine [cached since 227.6s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 04:49:27,437 INFO sqlalchemy.engine.Engine ROLLBACK
+223.72.84.77 - - [19/Sep/2025 04:49:27] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+205.210.31.199 - - [19/Sep/2025 05:52:07] "GET / HTTP/1.1" 200 -
+172.236.228.111 - - [19/Sep/2025 08:55:11] "GET / HTTP/1.1" 200 -
+180.101.244.12 - - [19/Sep/2025 09:07:01] "GET / HTTP/1.1" 200 -
+198.235.24.119 - - [19/Sep/2025 10:26:13] "GET / HTTP/1.1" 200 -
+44.220.185.207 - - [19/Sep/2025 10:57:21] code 400, message Bad request syntax ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03¦hÎ-Ñ?·h£ÖPd'=\x8be")
+44.220.185.207 - - [19/Sep/2025 10:57:21] "[31m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03¦hÎ-Ñ?·h£ÖPd'=\x8be[0m" 400 -
+44.220.185.207 - - [19/Sep/2025 10:57:22] "GET / HTTP/1.1" 200 -
+176.32.195.85 - - [19/Sep/2025 11:04:56] code 400, message Bad request version ("¯nãY»bhlÿ(=':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À")
+176.32.195.85 - - [19/Sep/2025 11:04:56] "[31m[1m\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\x09T\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À[0m" 400 -
+176.32.195.85 - - [19/Sep/2025 11:05:01] code 400, message Bad request syntax ('\x16\x03\x01\x05¨\x01\x00\x05¤\x03\x03')
+176.32.195.85 - - [19/Sep/2025 11:05:01] "[31m[1m\x16\x03\x01\x05¨\x01\x00\x05¤\x03\x03[0m" 400 -
+176.32.195.85 - - [19/Sep/2025 11:05:02] "[33mGET /v2/_catalog HTTP/1.1[0m" 404 -
+176.32.195.85 - - [19/Sep/2025 11:05:34] code 400, message Bad request syntax ('\x16\x03\x01\x05¨\x01\x00\x05¤\x03\x030à')
+176.32.195.85 - - [19/Sep/2025 11:05:34] "[31m[1m\x16\x03\x01\x05¨\x01\x00\x05¤\x03\x030à[0m" 400 -
+176.32.195.85 - - [19/Sep/2025 11:05:34] "[33mGET /v2/_catalog HTTP/1.1[0m" 404 -
+180.101.245.251 - - [19/Sep/2025 11:17:02] "[33mGET /v2/_catalog HTTP/1.1[0m" 404 -
+2025-09-19 11:53:59,869 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:53:59,869 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:53:59,869 INFO sqlalchemy.engine.Engine [cached since 2.57e+04s ago] ('', '', 1, 0)
+2025-09-19 11:54:00,136 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:54:00] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:21,531 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:21,531 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:21,531 INFO sqlalchemy.engine.Engine [cached since 2.584e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:21,796 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:21] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:22,906 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:22,906 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:22,906 INFO sqlalchemy.engine.Engine [cached since 2.584e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:23,172 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:23] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:28,291 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:28,291 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:28,291 INFO sqlalchemy.engine.Engine [cached since 2.585e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:28,555 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:28] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+211.71.92.185 - - [19/Sep/2025 11:56:30] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:30] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:31] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:31] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:31] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:31] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:31] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:31] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:32] "GET /auth/status HTTP/1.1" 200 -
+2025-09-19 11:56:32,478 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:32,478 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:32,478 INFO sqlalchemy.engine.Engine [cached since 2.585e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:32,745 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:32] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+211.71.92.185 - - [19/Sep/2025 11:56:33] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:34] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:34] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:35] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:35] "GET /auth/status HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 11:56:35] "GET /auth/status HTTP/1.1" 200 -
+2025-09-19 11:56:35,770 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:35,771 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:35,771 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:36,036 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:36] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:36,765 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:36,765 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:36,765 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:37,035 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:37] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:37,949 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:37,949 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:37,949 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:38,213 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:38] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:38,472 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:38,472 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:38,472 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:38,737 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:38] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:38,843 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:38,843 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:38,843 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:39,108 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:39] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:40,159 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:40,159 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:40,159 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:40,423 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:40] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:40,942 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:40,943 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:40,943 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:41,207 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:41] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:41,514 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:41,515 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:41,515 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:41,781 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:41] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:42,141 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:42,142 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:42,142 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:42,406 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:42] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:42,759 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:42,759 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:42,759 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:43,029 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:43] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:43,461 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:43,461 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:43,461 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:43,731 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:43] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:44,023 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:44,023 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:44,023 INFO sqlalchemy.engine.Engine [cached since 2.586e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:44,294 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:44] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:44,604 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:44,605 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:44,605 INFO sqlalchemy.engine.Engine [cached since 2.587e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:44,870 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:44] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:45,157 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:45,158 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:45,158 INFO sqlalchemy.engine.Engine [cached since 2.587e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:45,427 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:45] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:45,704 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:45,705 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:45,705 INFO sqlalchemy.engine.Engine [cached since 2.587e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:45,974 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:45] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:46,274 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:46,275 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:46,275 INFO sqlalchemy.engine.Engine [cached since 2.587e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:46,540 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:46] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:46,874 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:46,874 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:46,874 INFO sqlalchemy.engine.Engine [cached since 2.587e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:47,140 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:47] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:47,469 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:47,469 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:47,469 INFO sqlalchemy.engine.Engine [cached since 2.587e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:47,738 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:47] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:56:48,044 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:56:48,044 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:56:48,044 INFO sqlalchemy.engine.Engine [cached since 2.587e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:56:48,314 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:56:48] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:58:11,280 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:58:11,280 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:58:11,280 INFO sqlalchemy.engine.Engine [cached since 2.595e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:58:11,546 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:58:11] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:58:12,769 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:58:12,769 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:58:12,769 INFO sqlalchemy.engine.Engine [cached since 2.595e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:58:13,034 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:58:13] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:58:14,660 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:58:14,660 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:58:14,660 INFO sqlalchemy.engine.Engine [cached since 2.596e+04s ago] ('newuser@example.com', 'newuser@example.com', 1, 0)
+2025-09-19 11:58:14,925 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:58:14] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 11:59:15,556 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:15,556 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:15,556 INFO sqlalchemy.engine.Engine [cached since 2.604e+04s ago] ('', 1, 0)
+2025-09-19 11:59:15,557 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:15] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:21,297 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:21,297 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:21,297 INFO sqlalchemy.engine.Engine [cached since 2.604e+04s ago] ('', 1, 0)
+2025-09-19 11:59:21,297 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:21] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:22,061 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:22,061 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:22,061 INFO sqlalchemy.engine.Engine [cached since 2.604e+04s ago] ('', 1, 0)
+2025-09-19 11:59:22,062 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:22] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:22,258 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:22,258 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:22,258 INFO sqlalchemy.engine.Engine [cached since 2.604e+04s ago] ('', 1, 0)
+2025-09-19 11:59:22,258 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:22] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:22,436 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:22,436 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:22,436 INFO sqlalchemy.engine.Engine [cached since 2.604e+04s ago] ('', 1, 0)
+2025-09-19 11:59:22,437 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:22] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:22,644 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:22,644 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:22,644 INFO sqlalchemy.engine.Engine [cached since 2.605e+04s ago] ('', 1, 0)
+2025-09-19 11:59:22,645 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:22] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:22,879 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:22,879 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:22,879 INFO sqlalchemy.engine.Engine [cached since 2.605e+04s ago] ('', 1, 0)
+2025-09-19 11:59:22,879 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:22] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:23,071 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:23,071 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:23,071 INFO sqlalchemy.engine.Engine [cached since 2.605e+04s ago] ('', 1, 0)
+2025-09-19 11:59:23,071 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:23] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:23,273 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:23,273 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:23,273 INFO sqlalchemy.engine.Engine [cached since 2.605e+04s ago] ('', 1, 0)
+2025-09-19 11:59:23,273 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:23] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:23,479 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:23,479 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:23,479 INFO sqlalchemy.engine.Engine [cached since 2.605e+04s ago] ('', 1, 0)
+2025-09-19 11:59:23,480 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:23] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:28,495 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:28,495 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:28,496 INFO sqlalchemy.engine.Engine [cached since 2.605e+04s ago] ('', 1, 0)
+2025-09-19 11:59:28,496 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:28] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:29,576 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:29,576 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:29,576 INFO sqlalchemy.engine.Engine [cached since 2.605e+04s ago] ('', 1, 0)
+2025-09-19 11:59:29,577 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:29] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 11:59:29,755 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 11:59:29,755 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 11:59:29,755 INFO sqlalchemy.engine.Engine [cached since 2.605e+04s ago] ('', 1, 0)
+2025-09-19 11:59:29,756 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 11:59:29] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+106.52.79.248 - - [19/Sep/2025 12:00:12] "GET / HTTP/1.1" 200 -
+211.71.92.185 - - [19/Sep/2025 12:47:37] "GET /auth/status HTTP/1.1" 200 -
+2025-09-19 12:48:48,168 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 12:48:48,169 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 12:48:48,169 INFO sqlalchemy.engine.Engine [cached since 2.901e+04s ago] ('testuser123', 1, 0)
+2025-09-19 12:48:48,169 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 12:48:48,169 INFO sqlalchemy.engine.Engine [cached since 2.9e+04s ago] ('testuser123@example.com', 1, 0)
+2025-09-19 12:48:48,438 INFO sqlalchemy.engine.Engine INSERT INTO users (id, username, email, password_hash, is_active) VALUES (?, ?, ?, ?, ?)
+2025-09-19 12:48:48,438 INFO sqlalchemy.engine.Engine [cached since 2.9e+04s ago] ('f6612cee97ff47da', 'testuser123', 'testuser123@example.com', '$2b$12$pYWPUZUNaxPeYE0isxZcAeTgTUr8T6mBbd1MIgUuy6XqYMhoLwrdm', 1)
+2025-09-19 12:48:48,438 INFO sqlalchemy.engine.Engine COMMIT
+2025-09-19 12:48:48,442 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 12:48:48,442 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ?
+2025-09-19 12:48:48,442 INFO sqlalchemy.engine.Engine [cached since 2.9e+04s ago] ('f6612cee97ff47da',)
+2025-09-19 12:48:48,443 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 12:48:48] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2025-09-19 12:49:57,045 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 12:49:57,045 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 12:49:57,045 INFO sqlalchemy.engine.Engine [cached since 2.906e+04s ago] ('testuser123', 'testuser123', 1, 0)
+2025-09-19 12:49:57,312 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 12:49:57] "POST /auth/login HTTP/1.1" 200 -
+2025-09-19 12:51:06,399 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 12:51:06,399 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 12:51:06,399 INFO sqlalchemy.engine.Engine [cached since 2.915e+04s ago] ('testuser456', 1, 0)
+2025-09-19 12:51:06,665 INFO sqlalchemy.engine.Engine INSERT INTO users (id, username, email, password_hash, is_active) VALUES (?, ?, ?, ?, ?)
+2025-09-19 12:51:06,665 INFO sqlalchemy.engine.Engine [cached since 2.914e+04s ago] ('84ea83d21ecb4d2d', 'testuser456', None, '$2b$12$OS.//tjaG8g/YyzrmOUsc.al8DikXetbSKZ7JLtRyXwDMKYIbPxqi', 1)
+2025-09-19 12:51:06,665 INFO sqlalchemy.engine.Engine COMMIT
+2025-09-19 12:51:06,669 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 12:51:06,669 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ?
+2025-09-19 12:51:06,669 INFO sqlalchemy.engine.Engine [cached since 2.914e+04s ago] ('84ea83d21ecb4d2d',)
+2025-09-19 12:51:06,669 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 12:51:06] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2025-09-19 12:59:40,749 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 12:59:40,749 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 12:59:40,750 INFO sqlalchemy.engine.Engine [cached since 2.966e+04s ago] ('yhz', 1, 0)
+2025-09-19 12:59:40,750 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 12:59:40,750 INFO sqlalchemy.engine.Engine [cached since 2.965e+04s ago] ('abc123@qq.com', 1, 0)
+2025-09-19 12:59:41,024 INFO sqlalchemy.engine.Engine INSERT INTO users (id, username, email, password_hash, is_active) VALUES (?, ?, ?, ?, ?)
+2025-09-19 12:59:41,024 INFO sqlalchemy.engine.Engine [cached since 2.965e+04s ago] ('695539183ed04189', 'yhz', 'abc123@qq.com', '$2b$12$X8QmRPsI5Q9abQEslWV.PeXCDitHrEuFkCutjWL/aq/ldrNVmTubG', 1)
+2025-09-19 12:59:41,024 INFO sqlalchemy.engine.Engine COMMIT
+2025-09-19 12:59:41,028 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 12:59:41,029 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ?
+2025-09-19 12:59:41,029 INFO sqlalchemy.engine.Engine [cached since 2.965e+04s ago] ('695539183ed04189',)
+2025-09-19 12:59:41,030 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 12:59:41] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2025-09-19 13:12:33,774 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:33,774 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:33,774 INFO sqlalchemy.engine.Engine [cached since 3.044e+04s ago] ('yhz', 1, 0)
+2025-09-19 13:12:33,774 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:33] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 13:12:35,038 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:35,038 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:35,039 INFO sqlalchemy.engine.Engine [cached since 3.044e+04s ago] ('yhz', 1, 0)
+2025-09-19 13:12:35,039 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:35] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 13:12:35,229 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:35,229 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:35,229 INFO sqlalchemy.engine.Engine [cached since 3.044e+04s ago] ('yhz', 1, 0)
+2025-09-19 13:12:35,230 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:35] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 13:12:35,436 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:35,437 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:35,437 INFO sqlalchemy.engine.Engine [cached since 3.044e+04s ago] ('yhz', 1, 0)
+2025-09-19 13:12:35,437 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:35] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 13:12:35,625 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:35,625 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:35,626 INFO sqlalchemy.engine.Engine [cached since 3.044e+04s ago] ('yhz', 1, 0)
+2025-09-19 13:12:35,626 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:35] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 13:12:41,627 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:41,628 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:41,628 INFO sqlalchemy.engine.Engine [cached since 3.044e+04s ago] ('yhz阿里都会独立思考', 1, 0)
+2025-09-19 13:12:41,628 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:41,628 INFO sqlalchemy.engine.Engine [cached since 3.043e+04s ago] ('2054417842@qq.com', 1, 0)
+2025-09-19 13:12:41,894 INFO sqlalchemy.engine.Engine INSERT INTO users (id, username, email, password_hash, is_active) VALUES (?, ?, ?, ?, ?)
+2025-09-19 13:12:41,894 INFO sqlalchemy.engine.Engine [cached since 3.043e+04s ago] ('6a13a98a4ae148c2', 'yhz阿里都会独立思考', '2054417842@qq.com', '$2b$12$27UgutZC/olmdZqUY9PhVe.wkvreNS4POqc0k3u.CCel5/PWgug76', 1)
+2025-09-19 13:12:41,894 INFO sqlalchemy.engine.Engine COMMIT
+2025-09-19 13:12:41,897 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:41,897 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ?
+2025-09-19 13:12:41,897 INFO sqlalchemy.engine.Engine [cached since 3.043e+04s ago] ('6a13a98a4ae148c2',)
+2025-09-19 13:12:41,898 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:41] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2025-09-19 13:12:50,041 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:50,041 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:50,041 INFO sqlalchemy.engine.Engine [cached since 3.045e+04s ago] ('yhz好好好', 1, 0)
+2025-09-19 13:12:50,042 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:50,042 INFO sqlalchemy.engine.Engine [cached since 3.044e+04s ago] ('2054417842@qq.com', 1, 0)
+2025-09-19 13:12:50,042 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:50] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 13:12:51,052 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:51,052 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:51,053 INFO sqlalchemy.engine.Engine [cached since 3.045e+04s ago] ('yhz好好好', 1, 0)
+2025-09-19 13:12:51,053 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:51,053 INFO sqlalchemy.engine.Engine [cached since 3.044e+04s ago] ('2054417842@qq.com', 1, 0)
+2025-09-19 13:12:51,053 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:51] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 13:12:51,252 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:51,253 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:51,253 INFO sqlalchemy.engine.Engine [cached since 3.045e+04s ago] ('yhz好好好', 1, 0)
+2025-09-19 13:12:51,253 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:51,253 INFO sqlalchemy.engine.Engine [cached since 3.044e+04s ago] ('2054417842@qq.com', 1, 0)
+2025-09-19 13:12:51,254 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:51] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 13:12:58,990 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:58,991 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:58,991 INFO sqlalchemy.engine.Engine [cached since 3.046e+04s ago] ('yhz好好好', 1, 0)
+2025-09-19 13:12:58,992 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:12:58,992 INFO sqlalchemy.engine.Engine [cached since 3.045e+04s ago] ('2054417841@qq.com', 1, 0)
+2025-09-19 13:12:59,265 INFO sqlalchemy.engine.Engine INSERT INTO users (id, username, email, password_hash, is_active) VALUES (?, ?, ?, ?, ?)
+2025-09-19 13:12:59,265 INFO sqlalchemy.engine.Engine [cached since 3.045e+04s ago] ('af762518a6664332', 'yhz好好好', '2054417841@qq.com', '$2b$12$AsjEFLVODrvg/F.zo2WGN.tMJ7Doqg1URkeO4ciloW/FyuV3NZ7jC', 1)
+2025-09-19 13:12:59,265 INFO sqlalchemy.engine.Engine COMMIT
+2025-09-19 13:12:59,268 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:12:59,268 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ?
+2025-09-19 13:12:59,268 INFO sqlalchemy.engine.Engine [cached since 3.045e+04s ago] ('af762518a6664332',)
+2025-09-19 13:12:59,269 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:12:59] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+2025-09-19 13:20:47,738 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:20:47,738 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:20:47,738 INFO sqlalchemy.engine.Engine [cached since 3.093e+04s ago] ('yhz好好好', 1, 0)
+2025-09-19 13:20:47,739 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:20:47] "[31m[1mPOST /auth/register HTTP/1.1[0m" 409 -
+2025-09-19 13:20:53,350 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:20:53,351 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:20:53,351 INFO sqlalchemy.engine.Engine [cached since 3.094e+04s ago] ('yhz好好好很好喝', 1, 0)
+2025-09-19 13:20:53,351 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:20:53,351 INFO sqlalchemy.engine.Engine [cached since 3.092e+04s ago] ('newusr@example.com', 1, 0)
+2025-09-19 13:20:53,617 INFO sqlalchemy.engine.Engine INSERT INTO users (id, username, email, password_hash, is_active) VALUES (?, ?, ?, ?, ?)
+2025-09-19 13:20:53,617 INFO sqlalchemy.engine.Engine [cached since 3.092e+04s ago] ('ebfc3accb36f4571', 'yhz好好好很好喝', 'newusr@example.com', '$2b$12$JMO71aTBhchKWe0hCKwlp.MjZNGhugqh6KMKEt7fUpMhGeu161mRS', 1)
+2025-09-19 13:20:53,618 INFO sqlalchemy.engine.Engine COMMIT
+2025-09-19 13:20:53,621 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:20:53,622 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ?
+2025-09-19 13:20:53,622 INFO sqlalchemy.engine.Engine [cached since 3.092e+04s ago] ('ebfc3accb36f4571',)
+2025-09-19 13:20:53,622 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:20:53] "[35m[1mPOST /auth/register HTTP/1.1[0m" 201 -
+3.132.23.201 - - [19/Sep/2025 13:31:19] "GET / HTTP/1.1" 200 -
+3.132.23.201 - - [19/Sep/2025 13:33:00] "GET / HTTP/1.1" 200 -
+3.132.23.201 - - [19/Sep/2025 13:35:04] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03ù7ó\x00\x93\x84ù¨¿µÉ44\x96\x8f\x8f¹\x95\x1aëíö\x03Kµ\x11\x15©\x91&\x8dA\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+3.132.23.201 - - [19/Sep/2025 13:35:04] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03ù7ó\x00\x93\x84ù¨¿µÉ44\x96\x8f\x8f¹\x95\x1aëíö\x03Kµ\x11\x15©\x91&\x8dA\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+2025-09-19 13:36:05,210 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 13:36:05,210 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 13:36:05,210 INFO sqlalchemy.engine.Engine [cached since 3.183e+04s ago] ('2054417842@qq.com', '2054417842@qq.com', 1, 0)
+2025-09-19 13:36:05,483 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 13:36:05] "POST /auth/login HTTP/1.1" 200 -
+3.132.23.201 - - [19/Sep/2025 13:37:28] code 400, message Bad request syntax ('SSH-2.0-Go')
+3.132.23.201 - - [19/Sep/2025 13:37:28] "[31m[1mSSH-2.0-Go[0m" 400 -
+3.132.23.201 - - [19/Sep/2025 13:39:00] code 400, message Bad request version ('À\x14À')
+3.132.23.201 - - [19/Sep/2025 13:39:00] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03¬\x18Øµ2\x9e\x86ðOaâz:\x1cëDø\x90ãÖTêõÃUôÑ\x83\x1dbÕn\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+2025-09-19 14:33:33,539 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 14:33:33,540 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 14:33:33,540 INFO sqlalchemy.engine.Engine [cached since 3.527e+04s ago] ('abc123@qq.com', 'abc123@qq.com', 1, 0)
+2025-09-19 14:33:33,805 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 14:33:33] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 14:33:36,806 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 14:33:36,806 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 14:33:36,807 INFO sqlalchemy.engine.Engine [cached since 3.528e+04s ago] ('abc123@qq.com', 'abc123@qq.com', 1, 0)
+2025-09-19 14:33:37,072 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 14:33:37] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 14:33:53,818 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 14:33:53,819 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 14:33:53,819 INFO sqlalchemy.engine.Engine [cached since 3.529e+04s ago] ('2054417842@qq.com', '2054417842@qq.com', 1, 0)
+2025-09-19 14:33:54,087 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 14:33:54] "POST /auth/login HTTP/1.1" 200 -
+184.105.247.196 - - [19/Sep/2025 15:42:15] "GET / HTTP/1.1" 200 -
+184.105.247.196 - - [19/Sep/2025 15:42:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+162.216.150.144 - - [19/Sep/2025 15:51:08] code 400, message Bad request version ('À\x13À')
+162.216.150.144 - - [19/Sep/2025 15:51:08] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03t\x00·3\x85cy=\x1bÁÄÄ\x82Íóß´Wó)FG4¡°X\x81ã®\x95m1 z\x00HBu\x87\x95XöÑW\x89¸¯%Ã(\x9be:Æa\x9fpWà\x9d*éx\x0e\\\x00&À+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+162.216.150.144 - - [19/Sep/2025 15:51:08] code 400, message Bad request syntax ('\x16\x03\x01\x00Ê\x01\x00\x00Æ\x03\x03\x99x1ëÑ¨2äÎ\x068')
+162.216.150.144 - - [19/Sep/2025 15:51:08] "[31m[1m\x16\x03\x01\x00Ê\x01\x00\x00Æ\x03\x03\x99x1ëÑ¨2äÎ\x068[0m" 400 -
+2025-09-19 16:23:39,537 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 16:23:39,537 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 16:23:39,537 INFO sqlalchemy.engine.Engine [cached since 4.188e+04s ago] ('', '', 1, 0)
+2025-09-19 16:23:39,803 INFO sqlalchemy.engine.Engine ROLLBACK
+223.72.84.238 - - [19/Sep/2025 16:23:39] "[31m[1mPOST /auth/login HTTP/1.1[0m" 401 -
+2025-09-19 16:23:51,321 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 16:23:51,321 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 16:23:51,321 INFO sqlalchemy.engine.Engine [cached since 4.189e+04s ago] ('2054417842@qq.com', '2054417842@qq.com', 1, 0)
+2025-09-19 16:23:51,588 INFO sqlalchemy.engine.Engine ROLLBACK
+223.72.84.238 - - [19/Sep/2025 16:23:51] "POST /auth/login HTTP/1.1" 200 -
+2025-09-19 16:29:36,097 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 16:29:36,097 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 16:29:36,097 INFO sqlalchemy.engine.Engine [cached since 4.224e+04s ago] ('2054417842@qq.com', '2054417842@qq.com', 1, 0)
+2025-09-19 16:29:36,362 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 16:29:36] "POST /auth/login HTTP/1.1" 200 -
+2025-09-19 16:33:16,610 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 16:33:16,610 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 16:33:16,610 INFO sqlalchemy.engine.Engine [cached since 4.246e+04s ago] ('2054417842@qq,com', '2054417842@qq,com', 1, 0)
+2025-09-19 16:33:16,611 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 16:33:16] "[33mPOST /auth/login HTTP/1.1[0m" 404 -
+2025-09-19 16:33:33,621 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-19 16:33:33,622 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.username = ? OR users.email IS NOT NULL AND users.email = ?
+ LIMIT ? OFFSET ?
+2025-09-19 16:33:33,622 INFO sqlalchemy.engine.Engine [cached since 4.247e+04s ago] ('2054417842@qq.com', '2054417842@qq.com', 1, 0)
+2025-09-19 16:33:33,887 INFO sqlalchemy.engine.Engine ROLLBACK
+211.71.92.185 - - [19/Sep/2025 16:33:33] "POST /auth/login HTTP/1.1" 200 -
+86.54.31.38 - - [19/Sep/2025 21:38:16] "GET / HTTP/1.1" 200 -
+86.54.31.38 - - [19/Sep/2025 21:38:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+79.124.49.202 - - [19/Sep/2025 21:55:29] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+79.124.49.202 - - [19/Sep/2025 21:55:29] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+167.94.145.104 - - [19/Sep/2025 22:51:22] code 400, message Bad request version ('À\x14À')
+167.94.145.104 - - [19/Sep/2025 22:51:22] "[31m[1m\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03?9\x9e\x90^dïEí#\x98ô\\¶X³èø)NÄ\x85\x1dÊB\x1f'¹q²L\x1c ÿ\x01ú\x06@%\x16(\x1flÊU:þy B\x84~\x9dÔó\x95yUª%,åJ¶í\x00&Ì¨Ì©À/À0À+À,À\x13À\x09À\x14À[0m" 400 -
+167.94.145.104 - - [19/Sep/2025 22:51:26] "GET / HTTP/1.1" 200 -
+167.94.145.104 - - [19/Sep/2025 22:51:30] "GET / HTTP/1.1" 200 -
+167.94.145.104 - - [19/Sep/2025 22:51:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+167.94.145.104 - - [19/Sep/2025 22:51:32] code 505, message Invalid HTTP version (2.0)
+167.94.145.104 - - [19/Sep/2025 22:51:32] "[35m[1mPRI * HTTP/2.0[0m" 505 -
+167.94.145.104 - - [19/Sep/2025 22:51:38] "GET / HTTP/1.1" 200 -
+220.196.160.101 - - [19/Sep/2025 22:56:27] "GET / HTTP/1.1" 200 -
+142.93.47.112 - - [20/Sep/2025 03:47:09] code 400, message Bad request version ('À\x14À')
+142.93.47.112 - - [20/Sep/2025 03:47:09] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\x91\x9cÌBägQ|\x1c\x04\\ú\x8aèX!G\x15\x9c>@-Æ\x16\x03[<\x7f_ßØ£\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+142.93.47.112 - - [20/Sep/2025 03:47:10] code 400, message Bad request version ('À\x14À')
+142.93.47.112 - - [20/Sep/2025 03:47:10] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03üç9\x94æf×¨\x01-F\x9eN\x95þ\x91Á\x0bÙ@;W¨'#Ñ\x01\x1f\x07b\x85¶\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+142.93.47.112 - - [20/Sep/2025 03:47:10] "GET / HTTP/1.1" 200 -
+205.210.31.229 - - [20/Sep/2025 04:11:30] "GET / HTTP/1.0" 200 -
+79.124.49.202 - - [20/Sep/2025 05:17:34] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+79.124.49.202 - - [20/Sep/2025 05:17:34] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+185.170.144.3 - - [20/Sep/2025 05:18:56] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+185.170.144.3 - - [20/Sep/2025 05:18:56] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+147.185.132.198 - - [20/Sep/2025 08:18:49] "GET / HTTP/1.1" 200 -
+220.196.160.65 - - [20/Sep/2025 08:26:55] "GET / HTTP/1.1" 200 -
+220.196.160.61 - - [20/Sep/2025 08:27:02] "GET / HTTP/1.1" 200 -
+178.159.37.112 - - [20/Sep/2025 09:50:24] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+178.159.37.112 - - [20/Sep/2025 09:50:24] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+80.82.70.133 - - [20/Sep/2025 10:45:53] code 400, message Bad request version ("¯nãY»bhlÿ(=':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À")
+80.82.70.133 - - [20/Sep/2025 10:45:53] "[31m[1m\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\x09T\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À[0m" 400 -
+94.102.49.155 - - [20/Sep/2025 10:46:02] code 400, message Bad request version ('À\x13À')
+94.102.49.155 - - [20/Sep/2025 10:46:02] "[31m[1m\x16\x03\x01\x05¨\x01\x00\x05¤\x03\x03/\x9aæ1ÍÍO\x05í0\x8f:\x17£\x18®Bö@t\x92ì.3\x85x\x9dm\x18ó\x90¿ ²¯5wõ\x7fp¶k§70\x1bÕñ\x9fI]Õ@\x9fi:ÝÑÐñÉ\x98+\x8f!\x00\x1aÀ+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+94.102.49.155 - - [20/Sep/2025 10:46:02] "[33mGET /v2/_catalog HTTP/1.1[0m" 404 -
+94.102.49.155 - - [20/Sep/2025 10:46:03] code 400, message Bad request version ('À\x13À')
+94.102.49.155 - - [20/Sep/2025 10:46:03] "[31m[1m\x16\x03\x01\x05¨\x01\x00\x05¤\x03\x03\x92µ\x1bô¿¿è<Ö\x15\x9cQHSr\x1a}\x96\x15N«¥|nmWp3»\x07>ð >l\x13=¯ÃûÍç\x7fLãº^åîóÜÂéäb\x84E^zaYÊs»<\x00\x1aÀ+À/À,À0Ì©Ì¨À\x09À\x13À[0m" 400 -
+94.102.49.155 - - [20/Sep/2025 10:46:03] "[33mGET /v2/_catalog HTTP/1.1[0m" 404 -
+221.11.5.62 - - [20/Sep/2025 10:47:26] "GET / HTTP/1.1" 200 -
+180.95.238.224 - - [20/Sep/2025 10:48:25] "GET / HTTP/1.1" 200 -
+218.104.149.8 - - [20/Sep/2025 10:48:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+180.101.244.15 - - [20/Sep/2025 10:55:51] "[33mGET /v2/_catalog HTTP/1.1[0m" 404 -
+79.124.49.202 - - [20/Sep/2025 11:06:37] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+79.124.49.202 - - [20/Sep/2025 11:06:37] "[31m[1m\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie: mstshash=Administr[0m" 400 -
+176.65.149.21 - - [20/Sep/2025 12:51:18] code 400, message Bad request version ('@¼y±±ÇÞåÖ\x8b\x96|0§\x13HO\x0e\x03Ø\x89§+(\x82¢Ü')
+176.65.149.21 - - [20/Sep/2025 12:51:18] "[31m[1m\x16\x03\x01\x00ñ\x01\x00\x00í\x03\x03\x000\x0cÛü³\x10\x01\x00w»þ\x9e\x1e\x1eIÖpÉ}\x14¥\x81½éß¢M\x04óÌ5 @¼y±±ÇÞåÖ\x8b\x96|0§\x13HO\x0e\x03Ø\x89§+(\x82¢Ü[0m" 400 -
+216.218.206.69 - - [20/Sep/2025 12:55:37] "GET / HTTP/1.1" 200 -
+216.218.206.69 - - [20/Sep/2025 12:55:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+3.134.148.59 - - [20/Sep/2025 13:07:38] "GET / HTTP/1.1" 200 -
+3.134.148.59 - - [20/Sep/2025 13:09:14] "GET / HTTP/1.1" 200 -
+3.134.148.59 - - [20/Sep/2025 13:10:35] code 400, message Bad request version ('4»\x7fg')
+3.134.148.59 - - [20/Sep/2025 13:10:35] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03ý¦MEx½H%\x03¥"\x99\x80hè\x8d´¬4\x1fÌ¸aÚã\x0d4»\x7fg[0m" 400 -
+3.134.148.59 - - [20/Sep/2025 13:12:16] code 400, message Bad request syntax ('SSH-2.0-Go')
+3.134.148.59 - - [20/Sep/2025 13:12:16] "[31m[1mSSH-2.0-Go[0m" 400 -
+3.134.148.59 - - [20/Sep/2025 13:12:54] code 400, message Bad request version ('À\x14À')
+3.134.148.59 - - [20/Sep/2025 13:12:54] "[31m[1m\x16\x03\x01\x00{\x01\x00\x00w\x03\x03;\x1b\x01õ$h½ \x14\x10jÔ\\\x93\x14\x19\x9cÓò\x013¯\x12æ\x0f!\x8d\x19SøÀD\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\x09À\x14À[0m" 400 -
+ * Detected change in '/root/ToDoListServer/create_tables.py', reloading
+ * Restarting with stat
+2025-09-20 18:49:47,702 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-20 18:49:47,702 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-09-20 18:49:47,702 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-20 18:49:47,702 INFO sqlalchemy.engine.Engine COMMIT
+ * Debugger is active!
+ * Debugger PIN: 130-101-215
+ * Detected change in '/root/ToDoListServer/init_db.py', reloading
+ToDoList服务器启动中...
+可用接口:
+- POST /auth/register - 用户注册
+- POST /auth/login - 用户登录
+- GET /auth/status - 服务状态
+- GET / - 服务信息
+- GET /health - 健康检查
+ * Restarting with stat
+2025-09-20 19:06:54,208 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-20 19:06:54,210 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-09-20 19:06:54,210 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-20 19:06:54,213 INFO sqlalchemy.engine.Engine COMMIT
+ * Debugger is active!
+ * Debugger PIN: 130-101-215
+ * Detected change in '/root/ToDoListServer/models.py', reloading
+ToDoList服务器启动中...
+可用接口:
+- POST /auth/register - 用户注册
+- POST /auth/login - 用户登录
+- GET /auth/status - 服务状态
+- GET / - 服务信息
+- GET /health - 健康检查
+ * Restarting with stat
+2025-09-20 19:12:37,783 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-09-20 19:12:37,783 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-09-20 19:12:37,783 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-20 19:12:37,784 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("project_groups")
+2025-09-20 19:12:37,784 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-20 19:12:37,784 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("project_groups")
+2025-09-20 19:12:37,784 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-20 19:12:37,784 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("group_messages")
+2025-09-20 19:12:37,785 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-20 19:12:37,785 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("group_messages")
+2025-09-20 19:12:37,785 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-20 19:12:37,785 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message_read_status")
+2025-09-20 19:12:37,785 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-20 19:12:37,785 INFO sqlalchemy.engine.Engine PRAGMA temp.table_info("message_read_status")
+2025-09-20 19:12:37,785 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-09-20 19:12:37,786 INFO sqlalchemy.engine.Engine 
+CREATE TABLE project_groups (
+	id VARCHAR(16) NOT NULL, 
+	name VARCHAR(80) NOT NULL, 
+	project_title VARCHAR(100) NOT NULL, 
+	description TEXT, 
+	leader_id VARCHAR(16) NOT NULL, 
+	start_date DATE, 
+	due_date DATE NOT NULL, 
+	is_active BOOLEAN, 
+	contact_info VARCHAR(200), 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(leader_id) REFERENCES users (id)
+)
+
+
+2025-09-20 19:12:37,786 INFO sqlalchemy.engine.Engine [no key 0.00009s] ()
+2025-09-20 19:12:37,792 INFO sqlalchemy.engine.Engine CREATE UNIQUE INDEX ix_project_groups_name ON project_groups (name)
+2025-09-20 19:12:37,792 INFO sqlalchemy.engine.Engine [no key 0.00010s] ()
+2025-09-20 19:12:37,796 INFO sqlalchemy.engine.Engine 
+CREATE TABLE group_messages (
+	id VARCHAR(16) NOT NULL, 
+	group_id VARCHAR(16) NOT NULL, 
+	sender_id VARCHAR(16) NOT NULL, 
+	message_type VARCHAR(10), 
+	content TEXT NOT NULL, 
+	file_url VARCHAR(500), 
+	reply_to_id VARCHAR(16), 
+	sent_at DATETIME, 
+	is_deleted BOOLEAN, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(group_id) REFERENCES project_groups (id), 
+	FOREIGN KEY(sender_id) REFERENCES users (id), 
+	FOREIGN KEY(reply_to_id) REFERENCES group_messages (id)
+)
+
+
+2025-09-20 19:12:37,796 INFO sqlalchemy.engine.Engine [no key 0.00008s] ()
+2025-09-20 19:12:37,799 INFO sqlalchemy.engine.Engine 
+CREATE TABLE message_read_status (
+	id VARCHAR(16) NOT NULL, 
+	message_id VARCHAR(16) NOT NULL, 
+	user_id VARCHAR(16) NOT NULL, 
+	read_at DATETIME, 
+	PRIMARY KEY (id), 
+	CONSTRAINT unique_user_message UNIQUE (message_id, user_id), 
+	FOREIGN KEY(message_id) REFERENCES group_messages (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id)
+)
+
+
+2025-09-20 19:12:37,799 INFO sqlalchemy.engine.Engine [no key 0.00008s] ()
+2025-09-20 19:12:37,802 INFO sqlalchemy.engine.Engine COMMIT
+ * Debugger is active!
+ * Debugger PIN: 130-101-215
+ToDoList服务器启动中...
+可用接口:
+- POST /auth/register - 用户注册
+- POST /auth/login - 用户登录
+- GET /auth/status - 服务状态
+- GET / - 服务信息
+- GET /health - 健康检查

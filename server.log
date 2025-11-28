@@ -1,0 +1,107 @@
+2025-11-29 03:28:55,864 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 03:28:55,864 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_groups")
+2025-11-29 03:28:55,864 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("project_groups")
+2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("group_messages")
+2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message_read_status")
+2025-11-29 03:28:55,865 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:55,866 INFO sqlalchemy.engine.Engine COMMIT
+ * Restarting with stat
+2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("user_groups")
+2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2025-11-29 03:28:56,382 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("project_groups")
+2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("group_messages")
+2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("message_read_status")
+2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine [raw sql] ()
+2025-11-29 03:28:56,383 INFO sqlalchemy.engine.Engine COMMIT
+ * Debugger is active!
+ * Debugger PIN: 199-467-290
+(5628) wsgi starting up on http://0.0.0.0:5000
+(5628) accepted ('127.0.0.1', 37176)
+127.0.0.1 - - [29/Nov/2025 03:29:04] "GET / HTTP/1.1" 200 970 0.000902
+(5628) accepted ('127.0.0.1', 37178)
+127.0.0.1 - - [29/Nov/2025 03:29:04] "GET / HTTP/1.1" 200 970 0.000558
+(5628) accepted ('127.0.0.1', 37192)
+127.0.0.1 - - [29/Nov/2025 03:29:04] "GET / HTTP/1.1" 200 970 0.000726
+(5628) accepted ('127.0.0.1', 37206)
+127.0.0.1 - - [29/Nov/2025 03:29:04] "GET /health HTTP/1.1" 200 238 0.000518
+(5628) accepted ('127.0.0.1', 37216)
+127.0.0.1 - - [29/Nov/2025 03:29:04] "GET /auth/status HTTP/1.1" 200 237 0.000508
+(5628) accepted ('127.0.0.1', 37228)
+127.0.0.1 - - [29/Nov/2025 03:29:04] "POST /auth/register HTTP/1.1" 400 209 0.000643
+(5628) accepted ('127.0.0.1', 37242)
+127.0.0.1 - - [29/Nov/2025 03:29:04] "POST /auth/login HTTP/1.1" 400 209 0.000579
+(5628) accepted ('127.0.0.1', 37244)
+127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /auth/logout HTTP/1.1" 400 209 0.000594
+(5628) accepted ('127.0.0.1', 37250)
+127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /groups/create HTTP/1.1" 400 209 0.000482
+(5628) accepted ('127.0.0.1', 37254)
+127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /groups/join HTTP/1.1" 400 209 0.000622
+(5628) accepted ('127.0.0.1', 37262)
+127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /groups/join-by-code HTTP/1.1" 400 209 0.000505
+(5628) accepted ('127.0.0.1', 37272)
+ToDoList服务器启动中...
+监听地址: http://0.0.0.0:5000
+可用接口:
+- GET / - 服务信息
+- GET /health - 健康检查
+- POST /auth/register - 用户注册
+- POST /auth/login - 用户登录
+- POST /auth/logout - 用户登出
+- GET /auth/status - 认证服务状态
+- POST /groups/create - 创建项目组
+- POST /groups/join - 加入项目组
+- POST /groups/join-by-code - 通过邀请码加入项目组
+- GET /groups/list/<user_id> - 获取用户项目组列表
+- GET /groups/info/<group_id> - 获取项目组信息
+- PUT /groups/update/<group_id> - 更新项目组信息
+- DELETE /groups/delete/<group_id> - 删除项目组
+- GET /chat/rooms - 获取聊天室列表
+- GET /chat/rooms/<room_id>/messages - 获取聊天消息
+- POST /chat/rooms/<room_id>/messages - 发送聊天消息
+- WebSocket: subscribe/unsubscribe - 实时聊天功能
+2025-11-29 03:29:05,048 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 03:29:05,050 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_active AS users_is_active 
+FROM users 
+WHERE users.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 03:29:05,050 INFO sqlalchemy.engine.Engine [generated in 0.00016s] ('1', 1, 0)
+2025-11-29 03:29:05,051 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 03:29:05] "GET /groups/list/1 HTTP/1.1" 404 206 0.009328
+(5628) accepted ('127.0.0.1', 37288)
+2025-11-29 03:29:05,059 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 03:29:05,062 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 03:29:05,062 INFO sqlalchemy.engine.Engine [generated in 0.00019s] ('1', 1, 0)
+2025-11-29 03:29:05,063 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 03:29:05] "GET /groups/info/1 HTTP/1.1" 404 207 0.004547
+(5628) accepted ('127.0.0.1', 37292)
+127.0.0.1 - - [29/Nov/2025 03:29:05] "PUT /groups/update/1 HTTP/1.1" 400 209 0.000703
+(5628) accepted ('127.0.0.1', 37298)
+2025-11-29 03:29:05,080 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2025-11-29 03:29:05,080 INFO sqlalchemy.engine.Engine SELECT project_groups.id AS project_groups_id, project_groups.name AS project_groups_name, project_groups.project_title AS project_groups_project_title, project_groups.description AS project_groups_description, project_groups.leader_id AS project_groups_leader_id, project_groups.start_date AS project_groups_start_date, project_groups.due_date AS project_groups_due_date, project_groups.is_active AS project_groups_is_active, project_groups.contact_info AS project_groups_contact_info, project_groups.invite_code AS project_groups_invite_code 
+FROM project_groups 
+WHERE project_groups.id = ?
+ LIMIT ? OFFSET ?
+2025-11-29 03:29:05,080 INFO sqlalchemy.engine.Engine [cached since 0.01906s ago] ('1', 1, 0)
+2025-11-29 03:29:05,081 INFO sqlalchemy.engine.Engine ROLLBACK
+127.0.0.1 - - [29/Nov/2025 03:29:05] "DELETE /groups/delete/1 HTTP/1.1" 404 207 0.001697
+(5628) accepted ('127.0.0.1', 37308)
+127.0.0.1 - - [29/Nov/2025 03:29:05] "GET /chat/rooms HTTP/1.1" 401 209 0.000557
+(5628) accepted ('127.0.0.1', 37310)
+127.0.0.1 - - [29/Nov/2025 03:29:05] "GET /chat/rooms/1/messages HTTP/1.1" 401 209 0.000580
+(5628) accepted ('127.0.0.1', 37316)
+127.0.0.1 - - [29/Nov/2025 03:29:05] "POST /chat/rooms/1/messages HTTP/1.1" 401 209 0.000583
+(5628) accepted ('204.76.203.52', 58442)
+204.76.203.52 - - [29/Nov/2025 03:30:45] "CONNECT baidu.com:443 HTTP/1.1" 404 235 0.000491
