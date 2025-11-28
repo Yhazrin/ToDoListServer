@@ -2,6 +2,13 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_socketio import SocketIO
 from config import config
+try:
+    from flask_limiter import Limiter
+    from flask_limiter.util import get_remote_address
+    LIMITER_AVAILABLE = True
+except ImportError:
+    LIMITER_AVAILABLE = False
+    Limiter = None
 from models import db, bcrypt
 from auth import auth_bp
 from groups import groups_bp
@@ -12,10 +19,26 @@ from tasks import tasks_bp
 from files import files_bp
 from calendar_routes import calendar_bp
 from widget import widget_bp
+from utils.logger import setup_logger
+from utils.errors import error_handler
+from utils.middleware import setup_request_logging
 import os
+
+# Flask-Migrate
+try:
+    from flask_migrate import Migrate
+    MIGRATE_AVAILABLE = True
+except ImportError:
+    MIGRATE_AVAILABLE = False
+    Migrate = None
 
 socketio = SocketIO()
 import sockets  # 需要在 socketio 初始化后导入
+
+# 全局限流器（稍后在create_app中初始化）
+limiter = None
+# 全局迁移对象（稍后在create_app中初始化）
+migrate = None
 
 def create_app(config_name=None):
     """应用工厂函数"""
@@ -25,11 +48,55 @@ def create_app(config_name=None):
     config_name = config_name or os.getenv('FLASK_ENV', 'default')
     app.config.from_object(config[config_name])
     
+    # 初始化日志系统（需要在其他初始化之前）
+    app_logger, access_logger = setup_logger(app)
+    
     # 初始化扩展
     db.init_app(app)
     bcrypt.init_app(app)
+    
+    # 初始化Flask-Migrate
+    global migrate
+    if MIGRATE_AVAILABLE:
+        try:
+            migrate = Migrate(app, db)
+            app.logger.info('数据库迁移系统已启用')
+        except Exception as e:
+            app.logger.warning(f'数据库迁移系统初始化失败: {str(e)}')
+            migrate = None
+    else:
+        migrate = None
+        app.logger.warning('Flask-Migrate未安装，数据库迁移功能不可用')
+    
+    # 初始化API限流
+    global limiter
+    if LIMITER_AVAILABLE and app.config.get('RATELIMIT_ENABLED', True):
+        try:
+            limiter = Limiter(
+                app=app,
+                key_func=get_remote_address,
+                default_limits=[app.config.get('RATELIMIT_DEFAULT', '200 per hour')],
+                storage_uri=app.config.get('RATELIMIT_STORAGE_URL', 'memory://')
+            )
+            app.logger.info('API限流已启用')
+        except Exception as e:
+            app.logger.warning(f'API限流初始化失败: {str(e)}，将禁用限流')
+            limiter = None
+    else:
+        limiter = None
+        if not LIMITER_AVAILABLE:
+            app.logger.warning('Flask-Limiter未安装，API限流功能不可用')
+        else:
+            app.logger.info('API限流已禁用')
+    
     socketio.init_app(app, cors_allowed_origins="*")
     CORS(app)  # 允许跨域请求
+    
+    # 设置请求日志中间件
+    setup_request_logging(app, access_logger)
+    
+    # 注册错误处理器
+    error_handler(app)
     
     # 注册蓝图
     app.register_blueprint(auth_bp)
@@ -42,28 +109,7 @@ def create_app(config_name=None):
     app.register_blueprint(calendar_bp)
     app.register_blueprint(widget_bp)
     
-    # 全局错误处理
-    @app.errorhandler(404)
-    def not_found(error):
-        return jsonify({
-            'success': False,
-            'message': '请求的资源不存在'
-        }), 404
-    
-    @app.errorhandler(405)
-    def method_not_allowed(error):
-        return jsonify({
-            'success': False,
-            'message': '请求方法不被允许'
-        }), 405
-    
-    @app.errorhandler(500)
-    def internal_error(error):
-        db.session.rollback()
-        return jsonify({
-            'success': False,
-            'message': '服务器内部错误'
-        }), 500
+    app.logger.info('所有蓝图已注册')
     
     # 根路由
     @app.route('/')
@@ -94,16 +140,32 @@ def create_app(config_name=None):
     # 健康检查接口
     @app.route('/health')
     def health_check():
+        """健康检查接口"""
+        try:
+            # 检查数据库连接
+            from sqlalchemy import text
+            db.session.execute(text('SELECT 1'))
+            db_status = 'connected'
+        except Exception as e:
+            app.logger.error(f'数据库连接检查失败: {str(e)}')
+            db_status = 'disconnected'
+        
+        health_status = 'healthy' if db_status == 'connected' else 'degraded'
+        
         return jsonify({
             'success': True,
             'message': '服务运行正常',
-            'status': 'healthy'
-        })
+            'status': health_status,
+            'database': db_status,
+            'version': '2.0.0'
+        }), 200 if health_status == 'healthy' else 503
     
     # 创建数据库表
     with app.app_context():
         db.create_all()
+        app.logger.info('数据库表检查完成')
     
+    app.logger.info('应用初始化完成')
     return app
 
 if __name__ == '__main__':

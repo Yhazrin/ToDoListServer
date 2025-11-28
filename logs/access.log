@@ -1,0 +1,168 @@
+[2025-11-29 06:02:04] INFO in middleware: [1764367324418170] GET / - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324418170] Response: 200 - Duration: 0.000s - Size: 829 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324431142] GET / - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324431142] Response: 200 - Duration: 0.000s - Size: 829 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324477723] GET / - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324477723] Response: 200 - Duration: 0.000s - Size: 829 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324486009] GET /health - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324486009] Response: 200 - Duration: 0.001s - Size: 147 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324496219] GET /auth/status - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324496219] Response: 200 - Duration: 0.000s - Size: 97 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324505331] POST /auth/register - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324505331] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324514132] POST /auth/login - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324514132] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324523113] POST /auth/logout - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324523113] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324532235] POST /auth/google/login - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324532235] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324541330] POST /auth/google/callback - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324541330] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324550109] POST /auth/github/login - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324550109] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324558786] POST /auth/github/callback - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324558786] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324567348] GET /user/profile - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324567348] Response: 401 - Duration: 0.018s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324594395] PUT /user/profile - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324594395] Response: 401 - Duration: 0.002s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324605284] POST /groups/create - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324605284] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324614305] POST /groups/join - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324614305] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324623074] POST /groups/join-by-code - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324623074] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324632633] GET /groups/list/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324632633] Response: 404 - Duration: 0.002s - Size: 59 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324643617] GET /groups/info/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324643617] Response: 404 - Duration: 0.003s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324656536] PUT /groups/update/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324656536] Response: 400 - Duration: 0.000s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324666991] DELETE /groups/delete/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324666991] Response: 404 - Duration: 0.001s - Size: 60 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324676755] GET /groups/1/members - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324676755] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324687799] GET /groups/1/overview - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324687799] Response: 401 - Duration: 0.002s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324698742] GET /tasks - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324698742] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324709040] POST /tasks - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324709040] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324720144] GET /tasks/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324720144] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324730900] PUT /tasks/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324730900] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324741090] DELETE /tasks/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324741090] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324751438] GET /tasks/tree/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324751438] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324761819] PUT /tasks/1/move - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324761819] Response: 401 - Duration: 0.002s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324772779] POST /tasks/1/attachments - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324772779] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324783985] GET /tasks/1/attachments - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324783985] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324794159] DELETE /tasks/1/attachments/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324794159] Response: 401 - Duration: 0.002s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324804534] POST /files/upload - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324804534] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324815642] GET /files/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324815642] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324827504] DELETE /files/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324827504] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324838396] GET /files/group/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324838396] Response: 401 - Duration: 0.002s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324849418] GET /files/1/preview - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324849418] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324860522] GET /chat/rooms - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324860522] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324871460] GET /chat/rooms/1/messages - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324871460] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324881671] POST /chat/rooms/1/messages - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324881671] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324892123] GET /calendar/events - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324892123] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324902314] POST /calendar/events - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324902314] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324912714] GET /calendar/events/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324912714] Response: 401 - Duration: 0.002s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324923919] PUT /calendar/events/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324923919] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324934144] DELETE /calendar/events/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324934144] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324944719] POST /calendar/from-task/1 - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324944719] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324955038] GET /widget/today-tasks - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324955038] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:04] INFO in middleware: [1764367324965049] GET /widget/today-events - IP: 127.0.0.1 - User-Agent: curl/8.4.0
+[2025-11-29 06:02:04] INFO in middleware: [1764367324965049] Response: 401 - Duration: 0.001s - Size: 33 bytes
+[2025-11-29 06:02:57] INFO in middleware: [1764367377547127] GET /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:02:57] INFO in middleware: [1764367377547127] Response: 200 - Duration: 0.011s - Size: 4464 bytes
+[2025-11-29 06:09:01] INFO in middleware: [1764367741642679] GET /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:09:01] INFO in middleware: [1764367741642679] Response: 200 - Duration: 0.068s - Size: 4464 bytes
+[2025-11-29 06:09:42] INFO in middleware: [1764367782030933] POST /files/upload - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:09:42] INFO in middleware: [1764367782030933] Response: 201 - Duration: 0.066s - Size: 602 bytes
+[2025-11-29 06:09:43] INFO in middleware: [1764367783585816] POST /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:09:43] INFO in middleware: [1764367783585816] Response: 201 - Duration: 0.010s - Size: 252 bytes
+[2025-11-29 06:09:56] INFO in middleware: [1764367796078423] POST /files/upload - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:09:56] INFO in middleware: [1764367796078423] Response: 201 - Duration: 0.799s - Size: 537 bytes
+[2025-11-29 06:09:59] INFO in middleware: [1764367799101801] POST /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:09:59] INFO in middleware: [1764367799101801] Response: 201 - Duration: 0.009s - Size: 252 bytes
+[2025-11-29 06:10:15] INFO in middleware: [1764367815690621] POST /files/upload - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:10:15] INFO in middleware: [1764367815690621] Response: 201 - Duration: 0.114s - Size: 602 bytes
+[2025-11-29 06:10:19] INFO in middleware: [1764367819285247] POST /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:10:19] INFO in middleware: [1764367819285247] Response: 201 - Duration: 0.012s - Size: 243 bytes
+[2025-11-29 06:10:22] INFO in middleware: [1764367822865234] GET /files/group/2911c6f5155f488d - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:10:22] INFO in middleware: [1764367822865234] Response: 200 - Duration: 0.004s - Size: 1690 bytes
+[2025-11-29 06:10:45] INFO in middleware: [1764367845700676] GET /files/group/2911c6f5155f488d - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:10:45] INFO in middleware: [1764367845700676] Response: 200 - Duration: 0.003s - Size: 1690 bytes
+[2025-11-29 06:17:46] INFO in middleware: [1764368266841871] GET /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:17:46] INFO in middleware: [1764368266841871] Response: 200 - Duration: 0.057s - Size: 5334 bytes
+[2025-11-29 06:17:54] INFO in middleware: [1764368274017611] POST /files/upload - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:17:54] INFO in middleware: [1764368274017611] Response: 201 - Duration: 0.057s - Size: 602 bytes
+[2025-11-29 06:17:55] INFO in middleware: [1764368275302714] POST /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:17:55] INFO in middleware: [1764368275302714] Response: 201 - Duration: 0.009s - Size: 252 bytes
+[2025-11-29 06:18:10] INFO in middleware: [1764368290754932] POST /files/upload - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:18:10] INFO in middleware: [1764368290754932] Response: 201 - Duration: 0.056s - Size: 602 bytes
+[2025-11-29 06:18:13] INFO in middleware: [1764368293956533] POST /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:18:13] INFO in middleware: [1764368293956533] Response: 201 - Duration: 0.009s - Size: 252 bytes
+[2025-11-29 06:19:00] INFO in middleware: [1764368340573421] GET /files/group/2911c6f5155f488d - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:19:00] INFO in middleware: [1764368340573421] Response: 200 - Duration: 0.004s - Size: 2804 bytes
+[2025-11-29 06:19:07] INFO in middleware: [1764368347571156] GET /files/group/2911c6f5155f488d - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:19:07] INFO in middleware: [1764368347571156] Response: 200 - Duration: 0.004s - Size: 2804 bytes
+[2025-11-29 06:19:10] INFO in middleware: [1764368350636032] GET /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:19:10] INFO in middleware: [1764368350636032] Response: 200 - Duration: 0.005s - Size: 5920 bytes
+[2025-11-29 06:19:12] INFO in middleware: [1764368352514873] GET /files/group/2911c6f5155f488d - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:19:12] INFO in middleware: [1764368352514873] Response: 200 - Duration: 0.003s - Size: 2804 bytes
+[2025-11-29 06:22:49] INFO in middleware: [1764368569942116] GET /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:22:49] INFO in middleware: [1764368569942116] Response: 200 - Duration: 0.005s - Size: 5920 bytes
+[2025-11-29 06:22:54] INFO in middleware: [1764368574883675] POST /files/upload - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:22:54] INFO in middleware: [1764368574883675] Response: 201 - Duration: 0.049s - Size: 602 bytes
+[2025-11-29 06:22:56] INFO in middleware: [1764368576092400] POST /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:22:56] INFO in middleware: [1764368576092400] Response: 201 - Duration: 0.008s - Size: 252 bytes
+[2025-11-29 06:22:56] INFO in middleware: [176436857627764] GET /files/691e20a5ca9e47cc/preview - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:22:56] INFO in middleware: [176436857627764] Response: 401 - Duration: 0.000s - Size: 59 bytes
+[2025-11-29 06:23:04] INFO in middleware: [1764368584245148] POST /files/upload - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:23:04] INFO in middleware: [1764368584245148] Response: 201 - Duration: 0.085s - Size: 620 bytes
+[2025-11-29 06:23:05] INFO in middleware: [1764368585482412] POST /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:23:05] INFO in middleware: [1764368585482412] Response: 201 - Duration: 0.008s - Size: 252 bytes
+[2025-11-29 06:23:05] INFO in middleware: [1764368585583029] GET /files/81c7a9aa59a746a6/preview - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:23:05] INFO in middleware: [1764368585583029] Response: 401 - Duration: 0.000s - Size: 59 bytes
+[2025-11-29 06:23:23] INFO in middleware: [1764368603228265] GET /files/group/2911c6f5155f488d - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:23:23] INFO in middleware: [1764368603228265] Response: 200 - Duration: 0.003s - Size: 3936 bytes
+[2025-11-29 06:25:06] INFO in middleware: [1764368706992129] GET /files/81c7a9aa59a746a6/preview - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:25:06] INFO in middleware: [1764368706992129] Response: 401 - Duration: 0.000s - Size: 59 bytes
+[2025-11-29 06:25:06] INFO in middleware: [1764368706993085] GET /files/691e20a5ca9e47cc/preview - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:25:06] INFO in middleware: [1764368706993085] Response: 401 - Duration: 0.000s - Size: 59 bytes
+[2025-11-29 06:25:14] INFO in middleware: [1764368714122701] POST /files/upload - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:25:14] INFO in middleware: [1764368714122701] Response: 201 - Duration: 0.226s - Size: 544 bytes
+[2025-11-29 06:25:17] INFO in middleware: [1764368717605879] POST /chat/rooms/2911c6f5155f488d/messages - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:25:17] INFO in middleware: [1764368717605879] Response: 201 - Duration: 0.009s - Size: 252 bytes
+[2025-11-29 06:25:17] INFO in middleware: [1764368717691615] GET /files/81c7a9aa59a746a6/preview - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:25:17] INFO in middleware: [1764368717691615] Response: 401 - Duration: 0.000s - Size: 59 bytes
+[2025-11-29 06:25:17] INFO in middleware: [1764368717717225] GET /files/dc9813216b46400b/preview - IP: 211.71.92.185 - User-Agent: okhttp/4.12.0
+[2025-11-29 06:25:17] INFO in middleware: [1764368717717225] Response: 401 - Duration: 0.000s - Size: 59 bytes
+[2025-11-29 06:28:25] INFO in middleware: [1764368905754779] GET /http://azenv.net/ - IP: 204.76.203.51 - User-Agent: Go-http-client/1.1
+[2025-11-29 06:28:25] INFO in middleware: [1764368905754779] Response: 404 - Duration: 0.000s - Size: 164 bytes
+[2025-11-29 06:28:27] INFO in middleware: [1764368907323350] CONNECT /dnspod.qcloud.com:443 - IP: 204.76.203.51 - User-Agent: Go-http-client/1.1
+[2025-11-29 06:28:27] INFO in middleware: [1764368907323350] Response: 404 - Duration: 0.000s - Size: 168 bytes

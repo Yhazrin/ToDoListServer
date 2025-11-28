@@ -45,9 +45,11 @@ def get_messages(current_user, room_id):
     page = request.args.get('page', 1, type=int)
     per_page = request.args.get('per_page', 20, type=int)
 
-    # 查询历史消息
-    messages = GroupMessage.query.filter_by(group_id=room_id)\
-        .order_by(GroupMessage.sent_at.desc())\
+    # 查询历史消息（排除已删除的消息）
+    messages = GroupMessage.query.filter_by(
+        group_id=room_id,
+        is_deleted=False
+    ).order_by(GroupMessage.sent_at.desc())\
         .paginate(page=page, per_page=per_page, error_out=False)
 
     response = []
@@ -60,8 +62,13 @@ def get_messages(current_user, room_id):
             'senderName': sender.username if sender else 'Unknown',
             'messageType': msg.message_type,
             'content': msg.content,
-            'timestamp': msg.sent_at
+            'timestamp': msg.sent_at,
+            'updatedTime': msg.updated_time if hasattr(msg, 'updated_time') else None
         }
+        
+        # 添加回复消息ID（如果存在）
+        if msg.reply_to_id:
+            message_dict['replyToId'] = msg.reply_to_id
         
         # 添加文件URL（如果是文件类型消息）
         if msg.file_url:
@@ -72,6 +79,7 @@ def get_messages(current_user, room_id):
             task = Task.query.filter_by(id=msg.task_id, is_deleted=False).first()
             if task:
                 message_dict['task'] = task.to_dict()
+                message_dict['taskId'] = msg.task_id
         
         response.append(message_dict)
 
@@ -104,6 +112,7 @@ def send_message(current_user, room_id):
     content = data.get('content', '')
     file_url = data.get('fileUrl')
     task_id = data.get('taskId')
+    reply_to_id = data.get('replyToId')  # 支持回复消息功能
     
     # 验证文件URL（如果是文件类型消息）
     if message_type in ['image', 'video', 'audio', 'file']:
@@ -141,6 +150,12 @@ def send_message(current_user, room_id):
             if task.project_id != room_id:
                 return jsonify({'success': False, 'message': 'Permission denied: Task does not belong to this group'}), 403
     
+    # 验证回复消息ID（如果提供）
+    if reply_to_id:
+        reply_message = GroupMessage.query.filter_by(id=reply_to_id, group_id=room_id, is_deleted=False).first()
+        if not reply_message:
+            return jsonify({'success': False, 'message': 'Reply message not found'}), 404
+    
     # 创建新消息
     new_message = GroupMessage(
         group_id=room_id,
@@ -148,7 +163,8 @@ def send_message(current_user, room_id):
         content=content,
         message_type=message_type,
         file_url=file_url,
-        task_id=task_id
+        task_id=task_id,
+        reply_to_id=reply_to_id
     )
     db.session.add(new_message)
     db.session.commit()
@@ -162,8 +178,13 @@ def send_message(current_user, room_id):
         'senderName': sender.username if sender else 'Unknown',
         'messageType': new_message.message_type,
         'content': new_message.content,
-        'timestamp': new_message.sent_at
+        'timestamp': new_message.sent_at,
+        'updatedTime': new_message.updated_time if hasattr(new_message, 'updated_time') else None
     }
+    
+    # 添加回复消息ID
+    if new_message.reply_to_id:
+        message_data['replyToId'] = new_message.reply_to_id
     
     # 添加文件URL
     if new_message.file_url:
@@ -174,6 +195,7 @@ def send_message(current_user, room_id):
         task = Task.query.filter_by(id=new_message.task_id, is_deleted=False).first()
         if task:
             message_data['task'] = task.to_dict()
+            message_data['taskId'] = new_message.task_id
 
     # 通过WebSocket广播新消息（可选，如果SocketIO可用）
     try:
