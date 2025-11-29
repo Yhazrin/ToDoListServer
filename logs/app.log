@@ -837,3 +837,118 @@ WHERE users.id = ? OR users.username = ? OR users.email = ?
 [2025-11-29 20:20:12] INFO in app: group_messages 表结构已校正
 [2025-11-29 20:20:12] INFO in app: users 表头像列已校正
 [2025-11-29 20:20:12] INFO in app: 应用初始化完成
+[2025-11-30 02:16:45] INFO in logger: 日志系统初始化完成
+[2025-11-30 02:16:45] INFO in logger: 日志系统初始化完成
+[2025-11-30 02:16:45] INFO in app: 数据库迁移系统已启用
+[2025-11-30 02:16:45] INFO in app: 数据库迁移系统已启用
+[2025-11-30 02:16:45] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 02:16:45] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 02:16:46] INFO in app: 所有蓝图已注册
+[2025-11-30 02:16:46] INFO in app: 所有蓝图已注册
+[2025-11-30 02:16:46] INFO in app: 数据库表检查完成
+[2025-11-30 02:16:46] INFO in app: 数据库表检查完成
+[2025-11-30 02:16:46] INFO in app: group_messages 表结构已校正
+[2025-11-30 02:16:46] INFO in app: group_messages 表结构已校正
+[2025-11-30 02:16:46] INFO in app: users 表头像列已校正
+[2025-11-30 02:16:46] INFO in app: 应用初始化完成
+[2025-11-30 02:16:46] INFO in app: users 表头像列已校正
+[2025-11-30 02:16:46] INFO in app: 应用初始化完成
+[2025-11-30 02:17:13] INFO in logger: 日志系统初始化完成
+[2025-11-30 02:17:13] INFO in app: 数据库迁移系统已启用
+[2025-11-30 02:17:13] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 02:17:13] INFO in logger: 日志系统初始化完成
+[2025-11-30 02:17:13] INFO in app: 数据库迁移系统已启用
+[2025-11-30 02:17:13] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 02:17:14] INFO in app: 所有蓝图已注册
+[2025-11-30 02:17:14] INFO in app: 所有蓝图已注册
+[2025-11-30 02:17:14] INFO in app: 数据库表检查完成
+[2025-11-30 02:17:14] INFO in app: group_messages 表结构已校正
+[2025-11-30 02:17:14] INFO in app: users 表头像列已校正
+[2025-11-30 02:17:14] INFO in app: 应用初始化完成
+[2025-11-30 02:17:14] INFO in app: 数据库表检查完成
+[2025-11-30 02:17:14] INFO in app: group_messages 表结构已校正
+[2025-11-30 02:17:14] INFO in app: users 表头像列已校正
+[2025-11-30 02:17:14] INFO in app: 应用初始化完成
+[2025-11-30 02:17:21] INFO in logger: 日志系统初始化完成
+[2025-11-30 02:17:21] INFO in app: 数据库迁移系统已启用
+[2025-11-30 02:17:21] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 02:17:21] INFO in logger: 日志系统初始化完成
+[2025-11-30 02:17:21] INFO in app: 数据库迁移系统已启用
+[2025-11-30 02:17:21] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 02:17:21] INFO in app: 所有蓝图已注册
+[2025-11-30 02:17:21] INFO in app: 数据库表检查完成
+[2025-11-30 02:17:21] INFO in app: group_messages 表结构已校正
+[2025-11-30 02:17:21] INFO in app: users 表头像列已校正
+[2025-11-30 02:17:21] INFO in app: 应用初始化完成
+[2025-11-30 02:17:21] INFO in app: 所有蓝图已注册
+[2025-11-30 02:17:21] INFO in app: 数据库表检查完成
+[2025-11-30 02:17:21] INFO in app: group_messages 表结构已校正
+[2025-11-30 02:17:21] INFO in app: users 表头像列已校正
+[2025-11-30 02:17:21] INFO in app: 应用初始化完成
+[2025-11-30 02:19:42] INFO in logger: 日志系统初始化完成
+[2025-11-30 02:19:42] INFO in app: 数据库迁移系统已启用
+[2025-11-30 02:19:42] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 02:19:43] INFO in app: 所有蓝图已注册
+[2025-11-30 02:19:43] INFO in app: 数据库表检查完成
+[2025-11-30 02:19:43] INFO in app: group_messages 表结构已校正
+[2025-11-30 02:19:43] INFO in app: users 表头像列已校正
+[2025-11-30 02:19:43] INFO in app: tasks 表新增列已校正
+[2025-11-30 02:19:43] INFO in app: 应用初始化完成
+[2025-11-30 02:19:43] INFO in logger: 日志系统初始化完成
+[2025-11-30 02:19:43] INFO in app: 数据库迁移系统已启用
+[2025-11-30 02:19:43] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 02:19:43] INFO in app: 所有蓝图已注册
+[2025-11-30 02:19:43] INFO in app: 数据库表检查完成
+[2025-11-30 02:19:43] INFO in app: group_messages 表结构已校正
+[2025-11-30 02:19:43] INFO in app: users 表头像列已校正
+[2025-11-30 02:19:43] INFO in app: tasks 表新增列已校正
+[2025-11-30 02:19:43] INFO in app: 应用初始化完成
+[2025-11-30 04:38:25] INFO in logger: 日志系统初始化完成
+[2025-11-30 04:38:25] INFO in app: 数据库迁移系统已启用
+[2025-11-30 04:38:25] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 04:38:26] INFO in app: 所有蓝图已注册
+[2025-11-30 04:38:26] INFO in app: 数据库表检查完成
+[2025-11-30 04:38:26] INFO in app: group_messages 表结构已校正
+[2025-11-30 04:38:26] INFO in app: users 表头像列已校正
+[2025-11-30 04:38:26] INFO in app: tasks 表新增列已校正
+[2025-11-30 04:38:26] INFO in app: 应用初始化完成
+[2025-11-30 04:38:33] INFO in logger: 日志系统初始化完成
+[2025-11-30 04:38:33] INFO in app: 数据库迁移系统已启用
+[2025-11-30 04:38:33] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 04:38:33] INFO in app: 所有蓝图已注册
+[2025-11-30 04:38:33] INFO in app: 数据库表检查完成
+[2025-11-30 04:38:33] INFO in app: group_messages 表结构已校正
+[2025-11-30 04:38:33] INFO in app: users 表头像列已校正
+[2025-11-30 04:38:33] INFO in app: tasks 表新增列已校正
+[2025-11-30 04:38:33] INFO in app: oauth_accounts 索引已校正
+[2025-11-30 04:38:33] INFO in app: 应用初始化完成
+[2025-11-30 04:38:42] INFO in logger: 日志系统初始化完成
+[2025-11-30 04:38:42] INFO in app: 数据库迁移系统已启用
+[2025-11-30 04:38:42] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 04:38:42] INFO in app: 所有蓝图已注册
+[2025-11-30 04:38:42] INFO in app: 数据库表检查完成
+[2025-11-30 04:38:42] INFO in app: group_messages 表结构已校正
+[2025-11-30 04:38:42] INFO in app: users 表头像列已校正
+[2025-11-30 04:38:42] INFO in app: tasks 表新增列已校正
+[2025-11-30 04:38:42] INFO in app: oauth_accounts 索引已校正
+[2025-11-30 04:38:42] INFO in app: 应用初始化完成
+[2025-11-30 05:31:46] INFO in logger: 日志系统初始化完成
+[2025-11-30 05:31:46] INFO in app: 数据库迁移系统已启用
+[2025-11-30 05:31:46] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 05:31:46] INFO in app: 所有蓝图已注册
+[2025-11-30 05:31:46] INFO in app: 数据库表检查完成
+[2025-11-30 05:31:46] INFO in app: group_messages 表结构已校正
+[2025-11-30 05:31:46] INFO in app: users 表头像列已校正
+[2025-11-30 05:31:46] INFO in app: tasks 表新增列已校正
+[2025-11-30 05:31:46] INFO in app: oauth_accounts 索引已校正
+[2025-11-30 05:31:46] INFO in app: 应用初始化完成
+[2025-11-30 05:31:47] INFO in logger: 日志系统初始化完成
+[2025-11-30 05:31:47] INFO in app: 数据库迁移系统已启用
+[2025-11-30 05:31:47] WARNING in app: Flask-Limiter未安装，API限流功能不可用
+[2025-11-30 05:31:47] INFO in app: 所有蓝图已注册
+[2025-11-30 05:31:47] INFO in app: 数据库表检查完成
+[2025-11-30 05:31:47] INFO in app: group_messages 表结构已校正
+[2025-11-30 05:31:47] INFO in app: users 表头像列已校正
+[2025-11-30 05:31:47] INFO in app: tasks 表新增列已校正
+[2025-11-30 05:31:47] INFO in app: oauth_accounts 索引已校正
+[2025-11-30 05:31:47] INFO in app: 应用初始化完成

@@ -8,7 +8,7 @@ from .base import db, bcrypt
 from .user import User, OAuthAccount
 from .group import ProjectGroup, user_groups
 from .chat import GroupMessage, MessageReadStatus
-from .task import Task, TaskFile
+from .task import Task, TaskFile, TaskAssignee
 from .file import SharedFile
 from .settings import UserSettings
 from .calendar import CalendarEvent
@@ -29,6 +29,7 @@ __all__ = [
     # 任务相关模型
     'Task',
     'TaskFile',
+    'TaskAssignee',
     # 文件相关模型
     'SharedFile',
     'UserSettings',

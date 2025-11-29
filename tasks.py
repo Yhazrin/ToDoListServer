@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from models import db, User, ProjectGroup, Task, TaskFile, SharedFile
+from models import db, User, ProjectGroup, Task, TaskFile, SharedFile, TaskAssignee
 from auth import token_required
 from sqlalchemy.exc import IntegrityError
 from datetime import datetime
@@ -61,7 +61,34 @@ def get_tasks(current_user):
             
             query = query.filter(Task.project_id == project_id)
         
-        tasks = query.order_by(Task.created_at.desc()).all()
+        # 按月份筛选（用于月视图）
+        month = request.args.get('month')  # YYYY-MM
+        if month:
+            # 计算该月范围
+            try:
+                from datetime import datetime as dt
+                start = dt.strptime(month + '-01', '%Y-%m-%d')
+                if start.month == 12:
+                    end = start.replace(year=start.year + 1, month=1)
+                else:
+                    end = start.replace(month=start.month + 1)
+                start_str = start.strftime('%Y-%m-%d')
+                end_str = end.strftime('%Y-%m-%d')
+            except ValueError:
+                return jsonify({'success': False, 'message': 'Invalid month format'}), 400
+            # 任务在月视图内的判定：日期区间与due_date任一落入该月
+            tasks = query.order_by(Task.created_at.desc()).all()
+            def in_month(t):
+                sd = t.start_date or t.due_date
+                ed = t.end_date or t.due_date
+                if not sd and not ed:
+                    return False
+                sd = sd or ed
+                ed = ed or sd
+                return not (ed < start_str or sd >= end_str)
+            tasks = [t for t in tasks if in_month(t)]
+        else:
+            tasks = query.order_by(Task.created_at.desc()).all()
         
         return jsonify({
             'success': True,
@@ -127,16 +154,19 @@ def create_task(current_user):
                 }), 403
         
         # 处理日期
-        due_date = data.get('due_date')
-        if due_date:
+        def parse_date(value):
+            if not value:
+                return None
             try:
-                due_date_obj = datetime.fromisoformat(due_date.replace('Z', '+00:00'))
-                due_date = due_date_obj.strftime('%Y-%m-%d')
+                dt = datetime.fromisoformat(str(value).replace('Z', '+00:00'))
+                return dt.strftime('%Y-%m-%d')
             except ValueError:
-                return jsonify({
-                    'success': False,
-                    'message': 'Invalid due date format, please use ISO format'
-                }), 400
+                return None
+        start_date = parse_date(data.get('start_date'))
+        end_date = parse_date(data.get('end_date'))
+        due_date = parse_date(data.get('due_date'))
+        if any(v is None and data.get(k) for k, v in [('start_date', start_date), ('end_date', end_date), ('due_date', due_date)]):
+            return jsonify({'success': False, 'message': 'Invalid date format, please use ISO format'}), 400
         
         # 创建新任务
         new_task = Task(
@@ -147,7 +177,10 @@ def create_task(current_user):
             description=data.get('description'),
             status=data.get('status', 'pending'),
             priority=data.get('priority', 'medium'),
-            due_date=due_date
+            start_date=start_date,
+            end_date=end_date,
+            due_date=due_date,
+            assigned_to=data.get('assigned_to')
         )
         
         db.session.add(new_task)
@@ -203,7 +236,7 @@ def get_task(current_user, task_id):
             'message': f'Failed to retrieve task: {str(e)}'
         }), 500
 
-@tasks_bp.route('/<task_id>', methods=['PUT'])
+@tasks_bp.route('/<task_id>', methods=['PUT', 'PATCH'])
 @token_required
 def update_task(current_user, task_id):
     """更新任务接口"""
@@ -252,17 +285,39 @@ def update_task(current_user, task_id):
             if priority in ['low', 'medium', 'high', 'urgent']:
                 task.priority = priority
         
+        def parse_date(value, field):
+            if value is None:
+                return None
+            try:
+                dt = datetime.fromisoformat(str(value).replace('Z', '+00:00'))
+                return dt.strftime('%Y-%m-%d')
+            except ValueError:
+                return jsonify({'success': False, 'message': f'Invalid {field} format, please use ISO format'}), 400
+        if 'start_date' in data:
+            v = data['start_date']
+            if v:
+                res = parse_date(v, 'start_date')
+                if isinstance(res, tuple):
+                    return res
+                task.start_date = res
+            else:
+                task.start_date = None
+        if 'end_date' in data:
+            v = data['end_date']
+            if v:
+                res = parse_date(v, 'end_date')
+                if isinstance(res, tuple):
+                    return res
+                task.end_date = res
+            else:
+                task.end_date = None
         if 'due_date' in data:
-            due_date = data['due_date']
-            if due_date:
-                try:
-                    due_date_obj = datetime.fromisoformat(due_date.replace('Z', '+00:00'))
-                    task.due_date = due_date_obj.strftime('%Y-%m-%d')
-                except ValueError:
-                    return jsonify({
-                        'success': False,
-                        'message': 'Invalid due date format, please use ISO format'
-                    }), 400
+            v = data['due_date']
+            if v:
+                res = parse_date(v, 'due_date')
+                if isinstance(res, tuple):
+                    return res
+                task.due_date = res
             else:
                 task.due_date = None
         
@@ -700,4 +755,42 @@ def delete_task_attachment(current_user, task_id, file_id):
             'success': False,
             'message': f'Failed to remove attachment: {str(e)}'
         }), 500
+        if 'assigned_to' in data:
+            assigned_to = data['assigned_to']
+            task.assigned_to = assigned_to
+@tasks_bp.route('/<task_id>/assign', methods=['POST'])
+@token_required
+def assign_task(current_user, task_id):
+    """批量或单项指派任务给成员"""
+    try:
+        task = Task.query.filter_by(id=task_id, is_deleted=False).first()
+        if not task:
+            return jsonify({'success': False, 'message': 'Task not found'}), 404
+        # 只有任务所有者或项目负责人可指派
+        project = ProjectGroup.query.filter_by(id=task.project_id).first() if task.project_id else None
+        if not (task.user_id == current_user.id or (project and project.leader_id == current_user.id)):
+            return jsonify({'success': False, 'message': 'Permission denied'}), 403
 
+        data = request.get_json() or {}
+        assignees = data.get('assignees')
+        assigned_to = data.get('assigned_to')
+
+        updated = []
+        if assigned_to:
+            task.assigned_to = assigned_to
+        if isinstance(assignees, list):
+            for uid in assignees:
+                # 必须是项目成员
+                if project and (uid not in [m.id for m in project.members] and uid != project.leader_id):
+                    continue
+                existing = TaskAssignee.query.filter_by(task_id=task_id, user_id=uid).first()
+                if not existing:
+                    db.session.add(TaskAssignee(task_id=task_id, user_id=uid))
+                    updated.append(uid)
+
+        task.updated_at = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+        db.session.commit()
+        return jsonify({'success': True, 'message': 'Task assigned', 'assigned_to': task.assigned_to, 'assignees_added': updated, 'task': task.to_dict()}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'success': False, 'message': f'Failed to assign: {str(e)}'}), 500

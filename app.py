@@ -18,6 +18,8 @@ from oauth import oauth_bp
 from tasks import tasks_bp
 from files import files_bp
 from calendar_routes import calendar_bp
+from projects import projects_bp
+from notifications import notifications_bp
 from widget import widget_bp
 from utils.logger import setup_logger
 from utils.errors import error_handler
@@ -108,6 +110,8 @@ def create_app(config_name=None):
     app.register_blueprint(files_bp)
     app.register_blueprint(calendar_bp)
     app.register_blueprint(widget_bp)
+    app.register_blueprint(projects_bp)
+    app.register_blueprint(notifications_bp)
     
     app.logger.info('所有蓝图已注册')
     
@@ -190,6 +194,27 @@ def create_app(config_name=None):
                     db.session.execute(text('ALTER TABLE users ADD COLUMN avatar_file_id TEXT'))
                 db.session.commit()
                 app.logger.info('users 表头像列已校正')
+
+                # 兼容旧版本数据库：确保 tasks 表包含新增列
+                task_rows = db.session.execute(text('PRAGMA table_info(tasks)')).fetchall()
+                task_cols = {row[1] for row in task_rows}
+                if 'start_date' not in task_cols:
+                    db.session.execute(text('ALTER TABLE tasks ADD COLUMN start_date TEXT'))
+                if 'end_date' not in task_cols:
+                    db.session.execute(text('ALTER TABLE tasks ADD COLUMN end_date TEXT'))
+                if 'assigned_to' not in task_cols:
+                    db.session.execute(text('ALTER TABLE tasks ADD COLUMN assigned_to TEXT'))
+                db.session.commit()
+                app.logger.info('tasks 表新增列已校正')
+
+                # 兼容旧版本数据库：确保 oauth_accounts 唯一约束/索引
+                oauth_rows = db.session.execute(text('PRAGMA table_info(oauth_accounts)')).fetchall()
+                oauth_cols = {row[1] for row in oauth_rows}
+                # 为 provider_user_id 添加索引（SQLite用普通索引）
+                db.session.execute(text('CREATE INDEX IF NOT EXISTS idx_oauth_provider_user ON oauth_accounts(provider, provider_user_id)'))
+                db.session.execute(text('CREATE INDEX IF NOT EXISTS idx_oauth_user_provider ON oauth_accounts(user_id, provider)'))
+                db.session.commit()
+                app.logger.info('oauth_accounts 索引已校正')
         except Exception as e:
             app.logger.warning(f'group_messages 表结构校正失败: {str(e)}')
     

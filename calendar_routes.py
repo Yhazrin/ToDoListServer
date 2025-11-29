@@ -390,4 +390,44 @@ def create_event_from_task(current_user, task_id):
             'success': False,
             'message': f'Failed to create event from task: {str(e)}'
         }), 500
+@calendar_bp.route('/feed', methods=['GET'])
+@token_required
+def calendar_feed(current_user):
+    """返回某项目某月的日历事件，用于第三方同步或SSR"""
+    try:
+        project_id = request.args.get('projectId')
+        month = request.args.get('month')  # YYYY-MM
+        if not project_id or not month:
+            return jsonify({'success': False, 'message': 'projectId and month are required'}), 400
+
+        # 验证用户权限：必须是项目成员或负责人
+        from models import ProjectGroup
+        project = ProjectGroup.query.filter_by(id=project_id).first()
+        if not project:
+            return jsonify({'success': False, 'message': 'Project not found'}), 404
+        if current_user not in project.members and project.leader_id != current_user.id:
+            return jsonify({'success': False, 'message': 'Permission denied'}), 403
+
+        # 该月范围
+        try:
+            start = datetime.strptime(month + '-01', '%Y-%m-%d')
+            if start.month == 12:
+                end = start.replace(year=start.year + 1, month=1)
+            else:
+                end = start.replace(month=start.month + 1)
+        except ValueError:
+            return jsonify({'success': False, 'message': 'Invalid month format'}), 400
+
+        # 获取项目内成员的事件
+        member_ids = [m.id for m in project.members] + [project.leader_id]
+        events = CalendarEvent.query.filter(
+            CalendarEvent.user_id.in_(member_ids),
+            CalendarEvent.is_deleted == False,
+            CalendarEvent.start_time >= start.strftime('%Y-%m-%d %H:%M:%S'),
+            CalendarEvent.start_time < end.strftime('%Y-%m-%d %H:%M:%S')
+        ).order_by(CalendarEvent.start_time).all()
+
+        return jsonify({'success': True, 'message': 'Calendar feed retrieved', 'events': [e.to_dict() for e in events]}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Failed to get feed: {str(e)}'}), 500
 

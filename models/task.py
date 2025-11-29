@@ -14,7 +14,10 @@ class Task(db.Model):
     description = db.Column(db.Text)
     status = db.Column(db.String(20), default='pending')  # pending, in_progress, completed, cancelled
     priority = db.Column(db.String(10), default='medium')  # low, medium, high, urgent
+    start_date = db.Column(db.String(10))
+    end_date = db.Column(db.String(10))
     due_date = db.Column(db.String(10))  # YYYY-MM-DD格式
+    assigned_to = db.Column(db.String(16), db.ForeignKey('users.id'), index=True)
     created_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
     updated_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
     completed_at = db.Column(db.String(19))
@@ -25,7 +28,7 @@ class Task(db.Model):
     subtasks = db.relationship('Task', backref=db.backref('parent_task', remote_side=[id]), lazy='dynamic')
     
     def __init__(self, user_id, title, project_id=None, parent_task_id=None, description=None, 
-                 status='pending', priority='medium', due_date=None):
+                 status='pending', priority='medium', start_date=None, end_date=None, due_date=None, assigned_to=None):
         """初始化任务对象"""
         self.id = str(uuid.uuid4()).replace('-', '')[:16]
         self.user_id = user_id
@@ -35,11 +38,22 @@ class Task(db.Model):
         self.description = description
         self.status = status
         self.priority = priority
+        if start_date:
+            if isinstance(start_date, date):
+                self.start_date = start_date.strftime('%Y-%m-%d')
+            else:
+                self.start_date = start_date
+        if end_date:
+            if isinstance(end_date, date):
+                self.end_date = end_date.strftime('%Y-%m-%d')
+            else:
+                self.end_date = end_date
         if due_date:
             if isinstance(due_date, date):
                 self.due_date = due_date.strftime('%Y-%m-%d')
             else:
                 self.due_date = due_date
+        self.assigned_to = assigned_to
     
     def to_dict(self):
         """转换为字典格式"""
@@ -52,12 +66,16 @@ class Task(db.Model):
             'description': self.description,
             'status': self.status,
             'priority': self.priority,
+            'start_date': self.start_date,
+            'end_date': self.end_date,
             'due_date': self.due_date,
+            'assigned_to': self.assigned_to,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'completed_at': self.completed_at,
             'is_deleted': self.is_deleted,
-            'position': self.position
+            'position': self.position,
+            'assignees': [a.user_id for a in TaskAssignee.query.filter_by(task_id=self.id).all()]
         }
     
     def __repr__(self):
@@ -94,3 +112,30 @@ class TaskFile(db.Model):
     def __repr__(self):
         return f'<TaskFile {self.id}>'
 
+
+class TaskAssignee(db.Model):
+    """任务指派关系模型（多指派支持）"""
+    __tablename__ = 'task_assignees'
+    
+    id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
+    task_id = db.Column(db.String(16), db.ForeignKey('tasks.id'), nullable=False, index=True)
+    user_id = db.Column(db.String(16), db.ForeignKey('users.id'), nullable=False, index=True)
+    created_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
+    
+    __table_args__ = (db.UniqueConstraint('task_id', 'user_id', name='unique_task_assignee'),)
+    
+    def __init__(self, task_id, user_id):
+        self.id = str(uuid.uuid4()).replace('-', '')[:16]
+        self.task_id = task_id
+        self.user_id = user_id
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'task_id': self.task_id,
+            'user_id': self.user_id,
+            'created_at': self.created_at
+        }
+    
+    def __repr__(self):
+        return f'<TaskAssignee {self.id}>'

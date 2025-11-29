@@ -119,22 +119,26 @@ def google_login():
                     'token': user.id
                 }), 200
             else:
-                # 创建新账户（使用邮箱或Google ID作为用户名）
+                # 创建新账户（使用邮箱或Google ID作为用户名）；如邮箱已存在则复用该用户并绑定
                 username = email.split('@')[0] if email else f'google_{google_user_id[:8]}'
                 # 确保用户名唯一
                 base_username = username
                 counter = 1
-                while User.query.filter_by(username=username).first():
+                existing_by_email = User.query.filter_by(email=email).first() if email else None
+                while not existing_by_email and User.query.filter_by(username=username).first():
                     username = f'{base_username}{counter}'
                     counter += 1
                 
-                new_user = User(
-                    username=username,
-                    password=str(uuid.uuid4()),  # 随机密码
-                    email=email
-                )
-                db.session.add(new_user)
-                db.session.flush()  # 获取新用户ID
+                if existing_by_email:
+                    new_user = existing_by_email
+                else:
+                    new_user = User(
+                        username=username,
+                        password=str(uuid.uuid4()),  # 随机密码
+                        email=email
+                    )
+                    db.session.add(new_user)
+                    db.session.flush()  # 获取新用户ID
                 
                 # 创建OAuth绑定
                 oauth_account = OAuthAccount(
@@ -307,21 +311,23 @@ def github_login():
                     'token': user.id
                 }), 200
             else:
-                # 创建新账户
-                # 确保用户名唯一
-                base_username = username or f'github_{github_user_id[:8]}'
-                counter = 1
-                while User.query.filter_by(username=base_username).first():
-                    base_username = f'{username or "github"}{counter}'
-                    counter += 1
-                
-                new_user = User(
-                    username=base_username,
-                    password=str(uuid.uuid4()),  # 随机密码
-                    email=email
-                )
-                db.session.add(new_user)
-                db.session.flush()  # 获取新用户ID
+                # 创建新账户；如邮箱已存在则复用该用户并绑定
+                existing_by_email = User.query.filter_by(email=email).first() if email else None
+                if existing_by_email:
+                    new_user = existing_by_email
+                else:
+                    base_username = username or f'github_{github_user_id[:8]}'
+                    counter = 1
+                    while User.query.filter_by(username=base_username).first():
+                        base_username = f'{username or "github"}{counter}'
+                        counter += 1
+                    new_user = User(
+                        username=base_username,
+                        password=str(uuid.uuid4()),  # 随机密码
+                        email=email
+                    )
+                    db.session.add(new_user)
+                    db.session.flush()  # 获取新用户ID
                 
                 # 创建OAuth绑定
                 oauth_account = OAuthAccount(
@@ -387,4 +393,3 @@ def github_callback():
             'success': False,
             'message': f'GitHub callback failed: {str(e)}'
         }), 500
-

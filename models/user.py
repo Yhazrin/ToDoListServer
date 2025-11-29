@@ -56,7 +56,7 @@ class OAuthAccount(db.Model):
     id = db.Column(db.String(16), primary_key=True, default=lambda: str(uuid.uuid4()).replace('-', '')[:16])
     user_id = db.Column(db.String(16), db.ForeignKey('users.id'), nullable=False, index=True)
     provider = db.Column(db.String(20), nullable=False)  # google, github
-    provider_user_id = db.Column(db.String(100), nullable=False)  # OAuth提供商返回的用户ID
+    provider_user_id = db.Column(db.String(100), nullable=False, index=True)
     email = db.Column(db.String(120))
     access_token = db.Column(db.Text)  # 访问令牌（加密存储）
     refresh_token = db.Column(db.Text)  # 刷新令牌（加密存储）
@@ -64,8 +64,10 @@ class OAuthAccount(db.Model):
     created_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
     updated_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
     
-    # 创建唯一约束：一个用户在同一个提供商只能绑定一个账户
-    __table_args__ = (db.UniqueConstraint('user_id', 'provider', name='unique_user_provider'),)
+    __table_args__ = (
+        db.UniqueConstraint('user_id', 'provider', name='unique_user_provider'),
+        db.UniqueConstraint('provider', 'provider_user_id', name='unique_provider_user'),
+    )
     
     def __init__(self, user_id, provider, provider_user_id, email=None, access_token=None, 
                  refresh_token=None, token_expires_at=None):
