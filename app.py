@@ -164,6 +164,34 @@ def create_app(config_name=None):
     with app.app_context():
         db.create_all()
         app.logger.info('数据库表检查完成')
+        # 兼容旧版本数据库：确保 group_messages 表包含必要列
+        try:
+            from sqlalchemy import text
+            uri = app.config.get('SQLALCHEMY_DATABASE_URI', '')
+            if 'sqlite' in uri:
+                rows = db.session.execute(text('PRAGMA table_info(group_messages)')).fetchall()
+                # SQLite PRAGMA 返回 (cid, name, type, notnull, dflt_value, pk)
+                names = {row[1] for row in rows}
+                if 'file_url' not in names:
+                    db.session.execute(text('ALTER TABLE group_messages ADD COLUMN file_url TEXT'))
+                if 'task_id' not in names:
+                    db.session.execute(text('ALTER TABLE group_messages ADD COLUMN task_id TEXT'))
+                if 'updated_time' not in names:
+                    db.session.execute(text('ALTER TABLE group_messages ADD COLUMN updated_time INTEGER'))
+                db.session.commit()
+                app.logger.info('group_messages 表结构已校正')
+
+                # 兼容旧版本数据库：确保 users 表包含头像相关列
+                user_rows = db.session.execute(text('PRAGMA table_info(users)')).fetchall()
+                user_cols = {row[1] for row in user_rows}
+                if 'avatar_url' not in user_cols:
+                    db.session.execute(text('ALTER TABLE users ADD COLUMN avatar_url TEXT'))
+                if 'avatar_file_id' not in user_cols:
+                    db.session.execute(text('ALTER TABLE users ADD COLUMN avatar_file_id TEXT'))
+                db.session.commit()
+                app.logger.info('users 表头像列已校正')
+        except Exception as e:
+            app.logger.warning(f'group_messages 表结构校正失败: {str(e)}')
     
     app.logger.info('应用初始化完成')
     return app

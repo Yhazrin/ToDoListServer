@@ -10,6 +10,7 @@ from .group import ProjectGroup, user_groups
 from .chat import GroupMessage, MessageReadStatus
 from .task import Task, TaskFile
 from .file import SharedFile
+from .settings import UserSettings
 from .calendar import CalendarEvent
 
 __all__ = [
@@ -30,7 +31,7 @@ __all__ = [
     'TaskFile',
     # 文件相关模型
     'SharedFile',
+    'UserSettings',
     # 日历相关模型
     'CalendarEvent',
 ]
-

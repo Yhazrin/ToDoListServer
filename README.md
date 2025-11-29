@@ -99,6 +99,9 @@ ToDoListServer/
 ### 9. Widget数据接口
 - **今日任务**: 获取今日到期的任务列表
 - **今日事件**: 获取今日的日历事件列表
+- **任务统计**: 获取当前用户的任务统计数据（总数、待办、进行中、已完成、过期任务数）
+- **项目进度**: 获取指定项目的进度数据（任务统计和完成百分比）
+- **用户统计**: 获取用户综合统计数据（已完成任务数、加入项目数、文件数等）
 
 ## 技术栈
 
@@ -1038,6 +1041,96 @@ python app.py
 }
 ```
 
+#### 获取任务统计数据
+**GET** `/widget/task-stats`
+
+**需要认证**: `Authorization: Bearer <token>`
+
+成功响应：
+```json
+{
+    "success": true,
+    "message": "获取成功",
+    "stats": {
+        "total_tasks": 50,
+        "todo_tasks": 15,
+        "in_progress_tasks": 8,
+        "completed_tasks": 25,
+        "overdue_tasks": 2
+    }
+}
+```
+
+**字段说明**:
+- `total_tasks`: 用户所有任务总数（不包括已删除的任务）
+- `todo_tasks`: 待办任务数（status = pending）
+- `in_progress_tasks`: 进行中任务数（status = in_progress）
+- `completed_tasks`: 已完成任务数（status = completed）
+- `overdue_tasks`: 过期任务数（due_date < 当前日期 且 status != completed 且 status != cancelled）
+
+#### 获取项目进度数据
+**GET** `/widget/project-progress?project_id={project_id}`
+
+**需要认证**: `Authorization: Bearer <token>`
+
+**查询参数**:
+- `project_id` (可选): 项目ID。如果不提供，返回当前用户第一个活跃项目的进度
+
+成功响应：
+```json
+{
+    "success": true,
+    "message": "获取成功",
+    "progress": {
+        "project_id": "project_123",
+        "project_name": "项目名称",
+        "total_tasks": 30,
+        "todo_tasks": 10,
+        "in_progress_tasks": 5,
+        "completed_tasks": 15,
+        "progress_percentage": 50.0
+    }
+}
+```
+
+**字段说明**:
+- `project_id`: 项目ID
+- `project_name`: 项目名称
+- `total_tasks`: 项目总任务数（不包括已删除的任务）
+- `todo_tasks`: 待办任务数
+- `in_progress_tasks`: 进行中任务数
+- `completed_tasks`: 已完成任务数
+- `progress_percentage`: 进度百分比（0-100），计算公式：`(completed_tasks / total_tasks) * 100`
+
+**错误响应**:
+- 如果项目不存在或用户无权限访问，返回 `progress: null`
+- 如果用户无权限访问指定项目，返回 403 错误
+
+#### 获取用户综合统计数据
+**GET** `/widget/user-stats`
+
+**需要认证**: `Authorization: Bearer <token>`
+
+成功响应：
+```json
+{
+    "success": true,
+    "message": "获取成功",
+    "stats": {
+        "tasks_completed": 127,
+        "projects_joined": 8,
+        "files_shared": 45,
+        "total_files": 120
+    }
+}
+```
+
+**字段说明**:
+- `tasks_completed`: 用户已完成的任务数
+- `projects_joined`: 用户加入的项目数（仅统计活跃项目）
+- `files_shared`: 用户共享的文件数（当前返回与total_files相同，因为模型中没有is_shared字段）
+- `total_files`: 用户上传的文件总数
+
 ### 项目组增强功能
 
 #### 获取项目组成员列表
@@ -1464,6 +1557,29 @@ curl -X GET http://localhost:5000/widget/today-tasks \
 #### 获取今日事件
 ```bash
 curl -X GET http://localhost:5000/widget/today-events \
+  -H "Authorization: Bearer user_token_here"
+```
+
+#### 获取任务统计数据
+```bash
+curl -X GET http://localhost:5000/widget/task-stats \
+  -H "Authorization: Bearer user_token_here"
+```
+
+#### 获取项目进度数据
+```bash
+# 获取指定项目进度
+curl -X GET "http://localhost:5000/widget/project-progress?project_id=project123" \
+  -H "Authorization: Bearer user_token_here"
+
+# 获取当前用户默认项目进度
+curl -X GET http://localhost:5000/widget/project-progress \
+  -H "Authorization: Bearer user_token_here"
+```
+
+#### 获取用户综合统计数据
+```bash
+curl -X GET http://localhost:5000/widget/user-stats \
   -H "Authorization: Bearer user_token_here"
 ```
 

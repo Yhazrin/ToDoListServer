@@ -55,31 +55,44 @@ def get_messages(current_user, room_id):
     response = []
     for msg in messages.items:
         sender = User.query.get(msg.sender_id)
+        # 统一返回字段为下划线风格，类型为大写
+        updated_str = None
+        try:
+            # updated_time 可能为Unix时间戳，序列化为字符串时间
+            if getattr(msg, 'updated_time', None) is not None:
+                from datetime import datetime
+                if isinstance(msg.updated_time, (int, float)):
+                    updated_str = datetime.utcfromtimestamp(int(msg.updated_time)).strftime('%Y-%m-%d %H:%M:%S')
+                else:
+                    updated_str = str(msg.updated_time)
+        except Exception:
+            updated_str = None
+
         message_dict = {
             'id': msg.id,
-            'roomId': msg.group_id,
-            'senderId': msg.sender_id,
-            'senderName': sender.username if sender else 'Unknown',
-            'messageType': msg.message_type,
+            'room_id': msg.group_id,
+            'sender_id': msg.sender_id,
+            'sender_name': sender.username if sender else 'Unknown',
             'content': msg.content,
-            'timestamp': msg.sent_at,
-            'updatedTime': msg.updated_time if hasattr(msg, 'updated_time') else None
+            'message_type': (msg.message_type or 'text').upper(),
+            'file_url': msg.file_url,
+            'task_id': msg.task_id,
+            'created_at': msg.sent_at,
+            'updated_time': updated_str
         }
         
         # 添加回复消息ID（如果存在）
         if msg.reply_to_id:
-            message_dict['replyToId'] = msg.reply_to_id
+            message_dict['reply_to_id'] = msg.reply_to_id
         
         # 添加文件URL（如果是文件类型消息）
-        if msg.file_url:
-            message_dict['fileUrl'] = msg.file_url
+        # file_url 已在主字段返回
         
         # 添加任务信息（如果是任务类型消息）
         if msg.task_id:
             task = Task.query.filter_by(id=msg.task_id, is_deleted=False).first()
             if task:
                 message_dict['task'] = task.to_dict()
-                message_dict['taskId'] = msg.task_id
         
         response.append(message_dict)
 
@@ -105,14 +118,16 @@ def send_message(current_user, room_id):
         return jsonify({'success': False, 'message': 'Chat room not found or access denied'}), 404
 
     # 获取消息类型，默认为text
-    message_type = data.get('messageType', 'text')
+    # 兼容客户端字段命名：messageType 或 message_type
+    message_type = data.get('messageType', data.get('message_type', 'text'))
     if message_type not in ['text', 'image', 'video', 'audio', 'file', 'task']:
         return jsonify({'success': False, 'message': 'Invalid message type'}), 400
     
     content = data.get('content', '')
-    file_url = data.get('fileUrl')
-    task_id = data.get('taskId')
-    reply_to_id = data.get('replyToId')  # 支持回复消息功能
+    # 兼容客户端字段命名：fileUrl 或 file_url
+    file_url = data.get('fileUrl', data.get('file_url'))
+    task_id = data.get('taskId', data.get('task_id'))
+    reply_to_id = data.get('replyToId', data.get('reply_to_id'))  # 支持回复消息功能
     
     # 验证文件URL（如果是文件类型消息）
     if message_type in ['image', 'video', 'audio', 'file']:
@@ -171,31 +186,43 @@ def send_message(current_user, room_id):
 
     # 构造完整的消息对象用于返回和WebSocket广播
     sender = User.query.get(new_message.sender_id)
+    # 统一返回字段为下划线风格，类型为大写
+    from datetime import datetime
+    updated_str = None
+    try:
+        if getattr(new_message, 'updated_time', None) is not None:
+            if isinstance(new_message.updated_time, (int, float)):
+                updated_str = datetime.utcfromtimestamp(int(new_message.updated_time)).strftime('%Y-%m-%d %H:%M:%S')
+            else:
+                updated_str = str(new_message.updated_time)
+    except Exception:
+        updated_str = None
+
     message_data = {
         'id': new_message.id,
-        'roomId': new_message.group_id,
-        'senderId': new_message.sender_id,
-        'senderName': sender.username if sender else 'Unknown',
-        'messageType': new_message.message_type,
+        'room_id': new_message.group_id,
+        'sender_id': new_message.sender_id,
+        'sender_name': sender.username if sender else 'Unknown',
+        'message_type': (new_message.message_type or 'text').upper(),
         'content': new_message.content,
-        'timestamp': new_message.sent_at,
-        'updatedTime': new_message.updated_time if hasattr(new_message, 'updated_time') else None
+        'created_at': new_message.sent_at,
+        'updated_time': updated_str
     }
     
     # 添加回复消息ID
     if new_message.reply_to_id:
-        message_data['replyToId'] = new_message.reply_to_id
+        message_data['reply_to_id'] = new_message.reply_to_id
     
     # 添加文件URL
     if new_message.file_url:
-        message_data['fileUrl'] = new_message.file_url
+        message_data['file_url'] = new_message.file_url
     
     # 添加任务信息
     if new_message.task_id:
         task = Task.query.filter_by(id=new_message.task_id, is_deleted=False).first()
         if task:
             message_data['task'] = task.to_dict()
-            message_data['taskId'] = new_message.task_id
+            message_data['task_id'] = new_message.task_id
 
     # 通过WebSocket广播新消息（可选，如果SocketIO可用）
     try:

@@ -11,6 +11,8 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=True, index=True)
     password_hash = db.Column(db.String(128), nullable=False)
     is_active = db.Column(db.Boolean, default=True)
+    avatar_url = db.Column(db.String(500))
+    avatar_file_id = db.Column(db.String(16), db.ForeignKey('shared_files.id'), index=True)
     
     def __init__(self, username, password, email=None):
         """初始化用户对象"""
@@ -39,7 +41,8 @@ class User(db.Model):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'is_active': self.is_active
+            'is_active': self.is_active,
+            'avatar_url': self.avatar_url
         }
     
     def __repr__(self):
@@ -89,4 +92,3 @@ class OAuthAccount(db.Model):
     
     def __repr__(self):
         return f'<OAuthAccount {self.provider}:{self.provider_user_id}>'
-
