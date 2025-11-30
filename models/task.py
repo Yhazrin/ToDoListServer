@@ -16,7 +16,7 @@ class Task(db.Model):
     priority = db.Column(db.String(10), default='medium')  # low, medium, high, urgent
     start_date = db.Column(db.String(10))
     end_date = db.Column(db.String(10))
-    due_date = db.Column(db.String(10))  # YYYY-MM-DD格式
+    due_date = db.Column(db.String(10))  # 已废弃：保留列以兼容旧数据
     assigned_to = db.Column(db.String(16), db.ForeignKey('users.id'), index=True)
     created_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
     updated_at = db.Column(db.String(19), default=lambda: datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
@@ -48,11 +48,7 @@ class Task(db.Model):
                 self.end_date = end_date.strftime('%Y-%m-%d')
             else:
                 self.end_date = end_date
-        if due_date:
-            if isinstance(due_date, date):
-                self.due_date = due_date.strftime('%Y-%m-%d')
-            else:
-                self.due_date = due_date
+        # due_date 已废弃，不再写入
         self.assigned_to = assigned_to
     
     def to_dict(self):
@@ -68,7 +64,7 @@ class Task(db.Model):
             'priority': self.priority,
             'start_date': self.start_date,
             'end_date': self.end_date,
-            'due_date': self.due_date,
+            # 不再输出 due_date，仅使用 start_date/end_date
             'assigned_to': self.assigned_to,
             'created_at': self.created_at,
             'updated_at': self.updated_at,

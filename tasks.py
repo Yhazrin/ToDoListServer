@@ -76,11 +76,11 @@ def get_tasks(current_user):
                 end_str = end.strftime('%Y-%m-%d')
             except ValueError:
                 return jsonify({'success': False, 'message': 'Invalid month format'}), 400
-            # 任务在月视图内的判定：日期区间与due_date任一落入该月
+            # 任务在月视图内的判定：仅使用 start_date/end_date 区间
             tasks = query.order_by(Task.created_at.desc()).all()
             def in_month(t):
-                sd = t.start_date or t.due_date
-                ed = t.end_date or t.due_date
+                sd = t.start_date or t.end_date
+                ed = t.end_date or t.start_date
                 if not sd and not ed:
                     return False
                 sd = sd or ed
@@ -164,8 +164,7 @@ def create_task(current_user):
                 return None
         start_date = parse_date(data.get('start_date'))
         end_date = parse_date(data.get('end_date'))
-        due_date = parse_date(data.get('due_date'))
-        if any(v is None and data.get(k) for k, v in [('start_date', start_date), ('end_date', end_date), ('due_date', due_date)]):
+        if any(v is None and data.get(k) for k, v in [('start_date', start_date), ('end_date', end_date)]):
             return jsonify({'success': False, 'message': 'Invalid date format, please use ISO format'}), 400
         
         # 创建新任务
@@ -179,7 +178,6 @@ def create_task(current_user):
             priority=data.get('priority', 'medium'),
             start_date=start_date,
             end_date=end_date,
-            due_date=due_date,
             assigned_to=data.get('assigned_to')
         )
         
@@ -311,15 +309,7 @@ def update_task(current_user, task_id):
                 task.end_date = res
             else:
                 task.end_date = None
-        if 'due_date' in data:
-            v = data['due_date']
-            if v:
-                res = parse_date(v, 'due_date')
-                if isinstance(res, tuple):
-                    return res
-                task.due_date = res
-            else:
-                task.due_date = None
+        # 移除 due_date 更新逻辑
         
         if 'project_id' in data:
             project_id = data['project_id']

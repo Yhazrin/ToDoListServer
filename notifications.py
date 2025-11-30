@@ -17,8 +17,8 @@ def task_reminder(current_user):
         if task and current_user.id not in [task.user_id, task.assigned_to]:
             return jsonify({'success': False, 'message': 'Permission denied'}), 403
 
-        # 选择提醒日期：优先 due_date，其次 end_date
-        reminder_date = (task.due_date if task else None) or (task.end_date if task else None) or data.get('date')
+        # 选择提醒日期：使用 end_date 为主（仅区间）
+        reminder_date = (task.end_date if task else None) or data.get('date')
         if not reminder_date:
             return jsonify({'success': False, 'message': 'No reminder date provided'}), 400
 
@@ -33,4 +33,3 @@ def task_reminder(current_user):
         return jsonify({'success': True, 'message': 'Reminder scheduled', 'reminder': payload}), 200
     except Exception as e:
         return jsonify({'success': False, 'message': f'Failed to schedule reminder: {str(e)}'}), 500
-

@@ -25,6 +25,18 @@ def get_profile(current_user):
             'message': f'Failed to retrieve profile: {str(e)}'
         }), 500
 
+@user_bp.route('/profile/<user_id>', methods=['GET'])
+@token_required
+def get_profile_by_id(current_user, user_id):
+    """获取指定用户资料（包含头像地址）"""
+    try:
+        user = User.query.filter_by(id=user_id).first()
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found'}), 404
+        return jsonify({'success': True, 'message': 'Profile retrieved successfully', 'user': user.to_dict()}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Failed to retrieve profile: {str(e)}'}), 500
+
 @user_bp.route('/profile', methods=['PUT'])
 @token_required
 def update_profile(current_user):
@@ -97,8 +109,8 @@ def get_my_tasks(current_user):
     try:
         status = request.args.get('status')
         priority = request.args.get('priority')
-        due_start = request.args.get('dueStart')
-        due_end = request.args.get('dueEnd')
+        due_start = request.args.get('dueStart')  # legacy: 映射到 end_date
+        due_end = request.args.get('dueEnd')      # legacy: 映射到 end_date
         project_id = request.args.get('projectId')
 
         query = Task.query.filter(Task.is_deleted == False, Task.user_id == current_user.id)
@@ -113,9 +125,9 @@ def get_my_tasks(current_user):
             query = query.filter(Task.project_id == project_id)
 
         if due_start:
-            query = query.filter(Task.due_date >= due_start)
+            query = query.filter(Task.end_date >= due_start)
         if due_end:
-            query = query.filter(Task.due_date <= due_end)
+            query = query.filter(Task.end_date <= due_end)
 
         tasks = query.order_by(Task.created_at.desc()).all()
 
@@ -230,6 +242,29 @@ def delete_avatar(current_user):
     except Exception as e:
         db.session.rollback()
         return jsonify({'success': False, 'message': f'Failed to delete avatar: {str(e)}'}), 500
+
+@user_bp.route('/avatar/<user_id>', methods=['GET'])
+@token_required
+def get_user_avatar(current_user, user_id):
+    """获取指定用户头像图片"""
+    try:
+        user = User.query.filter_by(id=user_id).first()
+        if not user:
+            return jsonify({'success': False, 'message': 'User not found'}), 404
+        if not user.avatar_file_id:
+            return jsonify({'success': False, 'message': 'Avatar not set'}), 404
+        file_rec = SharedFile.query.filter_by(id=user.avatar_file_id, is_deleted=False).first()
+        if not file_rec:
+            return jsonify({'success': False, 'message': 'Avatar file not found'}), 404
+        upload_folder = current_app.config.get('UPLOAD_FOLDER')
+        file_path = os.path.join(upload_folder, file_rec.file_path)
+        if not os.path.exists(file_path):
+            return jsonify({'success': False, 'message': 'Avatar file missing on server'}), 404
+        mime = file_rec.mime_type or 'application/octet-stream'
+        from flask import send_file
+        return send_file(file_path, mimetype=mime, as_attachment=False, download_name=file_rec.filename)
+    except Exception as e:
+        return jsonify({'success': False, 'message': f'Failed to retrieve avatar: {str(e)}'}), 500
 
 @user_bp.route('/settings', methods=['GET'])
 @token_required

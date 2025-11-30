@@ -325,19 +325,23 @@ def create_event_from_task(current_user, task_id):
         
         data = request.get_json()
         if not data:
-            return jsonify({
-                'success': False,
-                'message': 'Invalid request data'
-            }), 400
+            data = {}
         
         start_time = data.get('start_time')
         end_time = data.get('end_time')
         
+        # 允许不提供时间，回退到任务的 start_date/end_date（全天事件）
         if not start_time or not end_time:
-            return jsonify({
-                'success': False,
-                'message': 'Start time and end time are required'
-            }), 400
+            if task.start_date:
+                sd = task.start_date
+                ed = task.end_date or task.start_date
+                start_time = f'{sd} 00:00:00'
+                end_time = f'{ed} 23:59:59'
+            else:
+                return jsonify({
+                    'success': False,
+                    'message': 'Start time/end time missing and task has no start_date'
+                }), 400
         
         # 验证时间格式
         try:
@@ -430,4 +434,3 @@ def calendar_feed(current_user):
         return jsonify({'success': True, 'message': 'Calendar feed retrieved', 'events': [e.to_dict() for e in events]}), 200
     except Exception as e:
         return jsonify({'success': False, 'message': f'Failed to get feed: {str(e)}'}), 500
-

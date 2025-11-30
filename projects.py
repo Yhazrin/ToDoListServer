@@ -20,10 +20,10 @@ def project_stats(current_user, project_id):
         completed = len([t for t in tasks if t.status == 'completed'])
         rate = round((completed / total * 100) if total > 0 else 0, 2)
 
-        # 每日分布：按 due_date 或 end_date 统计完成/未完成数量
+        # 每日分布：按 end_date 统计完成/未完成数量
         daily = {}
         for t in tasks:
-            day = t.end_date or t.due_date
+            day = t.end_date
             if not day:
                 continue
             if day not in daily:
@@ -44,4 +44,3 @@ def project_stats(current_user, project_id):
         }), 200
     except Exception as e:
         return jsonify({'success': False, 'message': f'Failed to get stats: {str(e)}'}), 500
-
