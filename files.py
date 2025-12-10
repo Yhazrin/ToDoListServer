@@ -121,10 +121,13 @@ def upload_file(current_user):
         db.session.add(new_file)
         db.session.commit()
         
+        file_data = new_file.to_dict()
+        file_data['uploaded_by_name'] = current_user.username
+        
         return jsonify({
             'success': True,
             'message': 'File uploaded successfully',
-            'file': new_file.to_dict()
+            'file': file_data
         }), 201
         
     except Exception as e:
@@ -162,10 +165,14 @@ def get_file(current_user, file_id):
                     'message': 'Permission denied'
                 }), 403
         
+        file_data = file.to_dict()
+        user = User.query.get(file.user_id)
+        file_data['uploaded_by_name'] = user.username if user else "Unknown"
+        
         return jsonify({
             'success': True,
             'message': 'File retrieved successfully',
-            'file': file.to_dict()
+            'file': file_data
         }), 200
         
     except Exception as e:
@@ -235,15 +242,23 @@ def get_group_files(current_user, group_id):
             }), 403
         
         # 获取项目组的所有文件
-        files = SharedFile.query.filter_by(
-            group_id=group_id,
-            is_deleted=False
+        results = db.session.query(SharedFile, User).outerjoin(
+            User, SharedFile.user_id == User.id
+        ).filter(
+            SharedFile.group_id == group_id,
+            SharedFile.is_deleted == False
         ).order_by(SharedFile.created_at.desc()).all()
+        
+        file_list = []
+        for file, user in results:
+            data = file.to_dict()
+            data['uploaded_by_name'] = user.username if user else "Unknown"
+            file_list.append(data)
         
         return jsonify({
             'success': True,
             'message': 'Files retrieved successfully',
-            'files': [file.to_dict() for file in files]
+            'files': file_list
         }), 200
         
     except Exception as e:
@@ -301,4 +316,3 @@ def preview_file(current_user, file_id):
             'success': False,
             'message': f'Failed to preview file: {str(e)}'
         }), 500
-

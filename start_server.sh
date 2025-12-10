@@ -10,6 +10,8 @@ PID_FILE="server.pid"
 LOG_FILE="server.log"
 PORT=5000
 HOST="0.0.0.0"
+WORKERS=1
+WS_WORKER="gevent"
 
 # 颜色输出
 RED='\033[0;31m'
@@ -66,9 +68,21 @@ start_server() {
     # 清理旧的PID文件
     [ -f "$PID_FILE" ] && rm -f "$PID_FILE"
     
-    # 使用nohup在后台启动服务器
-    nohup python3 "$APP_FILE" --host="$HOST" --port="$PORT" > "$LOG_FILE" 2>&1 &
-    local pid=$!
+    # 优先使用支持WebSocket的Gunicorn
+    if command -v gunicorn >/dev/null 2>&1; then
+        local entry="wsgi:app"
+        # 如果找不到 wsgi.py 则回退使用工厂可调用
+        if [ ! -f "wsgi.py" ]; then
+            entry="app:create_app()"
+        fi
+        print_message $BLUE "检测到 Gunicorn，使用 WebSocket worker 启动"
+        nohup gunicorn -k "$WS_WORKER" -w "$WORKERS" -b "$HOST:$PORT" "$entry" > "$LOG_FILE" 2>&1 &
+        local pid=$!
+    else
+        print_message $YELLOW "未检测到 Gunicorn，使用内置服务器启动（WebSocket在生产环境可能不可用）"
+        nohup python3 "$APP_FILE" --host="$HOST" --port="$PORT" > "$LOG_FILE" 2>&1 &
+        local pid=$!
+    fi
     
     # 保存PID
     echo $pid > "$PID_FILE"

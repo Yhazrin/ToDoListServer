@@ -28,38 +28,20 @@ def get_tasks(current_user):
         project_id = request.args.get('projectId')
         user_id = request.args.get('userId')
         
-        # 构建查询
         query = Task.query.filter(Task.is_deleted == False)
-        
-        # 如果没有指定userId，默认使用当前用户的任务
-        if user_id:
+        if project_id:
+            project = ProjectGroup.query.filter_by(id=project_id).first()
+            if not project:
+                return jsonify({'success': False, 'message': 'Project not found'}), 404
+            if current_user not in project.members and project.leader_id != current_user.id:
+                return jsonify({'success': False, 'message': 'Permission denied: Not a member of this project'}), 403
+            query = query.filter(Task.project_id == project_id)
+        elif user_id:
             if user_id != current_user.id:
-                # 检查权限：只能查看自己的任务或其他用户共享的任务
-                return jsonify({
-                    'success': False,
-                    'message': 'Permission denied'
-                }), 403
+                return jsonify({'success': False, 'message': 'Permission denied'}), 403
             query = query.filter(Task.user_id == user_id)
         else:
             query = query.filter(Task.user_id == current_user.id)
-        
-        # 按项目筛选
-        if project_id:
-            # 验证用户是否有权限访问该项目组
-            project = ProjectGroup.query.filter_by(id=project_id).first()
-            if not project:
-                return jsonify({
-                    'success': False,
-                    'message': 'Project not found'
-                }), 404
-            
-            if current_user not in project.members and project.leader_id != current_user.id:
-                return jsonify({
-                    'success': False,
-                    'message': 'Permission denied: Not a member of this project'
-                }), 403
-            
-            query = query.filter(Task.project_id == project_id)
         
         # 按月份筛选（用于月视图）
         month = request.args.get('month')  # YYYY-MM
@@ -148,10 +130,12 @@ def create_task(current_user):
                 }), 404
             
             if parent_task.user_id != current_user.id:
-                return jsonify({
-                    'success': False,
-                    'message': 'Permission denied: Cannot create subtask for other user\'s task'
-                }), 403
+                if parent_task.project_id:
+                    project = ProjectGroup.query.filter_by(id=parent_task.project_id).first()
+                    if not project or (current_user not in project.members and project.leader_id != current_user.id):
+                        return jsonify({'success': False, 'message': 'Permission denied'}), 403
+                else:
+                    return jsonify({'success': False, 'message': 'Permission denied'}), 403
         
         # 处理日期
         def parse_date(value):
@@ -164,6 +148,7 @@ def create_task(current_user):
                 return None
         start_date = parse_date(data.get('start_date'))
         end_date = parse_date(data.get('end_date'))
+        due_date = parse_date(data.get('due_date'))
         if any(v is None and data.get(k) for k, v in [('start_date', start_date), ('end_date', end_date)]):
             return jsonify({'success': False, 'message': 'Invalid date format, please use ISO format'}), 400
         
@@ -178,6 +163,7 @@ def create_task(current_user):
             priority=data.get('priority', 'medium'),
             start_date=start_date,
             end_date=end_date,
+            due_date=due_date,
             assigned_to=data.get('assigned_to')
         )
         
@@ -217,10 +203,12 @@ def get_task(current_user, task_id):
         
         # 检查权限
         if task.user_id != current_user.id:
-            return jsonify({
-                'success': False,
-                'message': 'Permission denied'
-            }), 403
+            if task.project_id:
+                project = ProjectGroup.query.filter_by(id=task.project_id).first()
+                if not project or (current_user not in project.members and project.leader_id != current_user.id):
+                    return jsonify({'success': False, 'message': 'Permission denied'}), 403
+            else:
+                return jsonify({'success': False, 'message': 'Permission denied'}), 403
         
         return jsonify({
             'success': True,
@@ -246,12 +234,13 @@ def update_task(current_user, task_id):
                 'message': 'Task not found'
             }), 404
         
-        # 检查权限
         if task.user_id != current_user.id:
-            return jsonify({
-                'success': False,
-                'message': 'Permission denied'
-            }), 403
+            if task.project_id:
+                project = ProjectGroup.query.filter_by(id=task.project_id).first()
+                if not project or (current_user not in project.members and project.leader_id != current_user.id):
+                    return jsonify({'success': False, 'message': 'Permission denied'}), 403
+            else:
+                return jsonify({'success': False, 'message': 'Permission denied'}), 403
         
         data = request.get_json()
         if not data:
@@ -282,6 +271,9 @@ def update_task(current_user, task_id):
             priority = data['priority']
             if priority in ['low', 'medium', 'high', 'urgent']:
                 task.priority = priority
+        
+        if 'assigned_to' in data:
+            task.assigned_to = data['assigned_to']
         
         def parse_date(value, field):
             if value is None:
@@ -745,9 +737,6 @@ def delete_task_attachment(current_user, task_id, file_id):
             'success': False,
             'message': f'Failed to remove attachment: {str(e)}'
         }), 500
-        if 'assigned_to' in data:
-            assigned_to = data['assigned_to']
-            task.assigned_to = assigned_to
 @tasks_bp.route('/<task_id>/assign', methods=['POST'])
 @token_required
 def assign_task(current_user, task_id):

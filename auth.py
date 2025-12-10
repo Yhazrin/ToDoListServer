@@ -196,3 +196,45 @@ def token_required(f):
             return jsonify({'message': 'Account disabled'}), 403
         return f(current_user=user, *args, **kwargs)
     return decorated
+
+@auth_bp.route('/change-password', methods=['POST'])
+@token_required
+def change_password(current_user):
+    """修改密码接口"""
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({
+                'success': False,
+                'message': 'Invalid request data'
+            }), 400
+            
+        old_password = data.get('old_password', '')
+        new_password = data.get('new_password', '')
+        
+        if not old_password or not new_password:
+             return jsonify({
+                'success': False,
+                'message': 'Both old and new passwords are required'
+            }), 400
+            
+        if not current_user.check_password(old_password):
+            return jsonify({
+                'success': False,
+                'message': 'Invalid old password'
+            }), 401
+            
+        current_user.set_password(new_password)
+        db.session.commit()
+        
+        return jsonify({
+            'success': True,
+            'message': 'Password changed successfully'
+        }), 200
+        
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({
+            'success': False,
+            'message': f'Change password failed: {str(e)}'
+        }), 500

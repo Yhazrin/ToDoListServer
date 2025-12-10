@@ -1,7 +1,11 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_socketio import SocketIO
+from flask_sock import Sock
 from config import config
+
+sock = Sock()
+
 try:
     from flask_limiter import Limiter
     from flask_limiter.util import get_remote_address
@@ -91,6 +95,7 @@ def create_app(config_name=None):
         else:
             app.logger.info('API限流已禁用')
     
+    sock.init_app(app)
     socketio.init_app(app, cors_allowed_origins="*")
     CORS(app)  # 允许跨域请求
     

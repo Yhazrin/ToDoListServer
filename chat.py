@@ -80,6 +80,13 @@ def get_messages(current_user, room_id):
             'created_at': msg.sent_at,
             'updated_time': updated_str
         }
+
+        # 为非文本类型提供 caption 字段，便于客户端统一展示附加文字
+        try:
+            if (msg.message_type or 'text') in ['image', 'video', 'audio', 'file', 'task'] and (msg.content or '').strip():
+                message_dict['caption'] = msg.content
+        except Exception:
+            pass
         
         # 添加回复消息ID（如果存在）
         if msg.reply_to_id:
@@ -208,6 +215,13 @@ def send_message(current_user, room_id):
         'created_at': new_message.sent_at,
         'updated_time': updated_str
     }
+
+    # 为非文本类型提供 caption 字段，便于客户端统一展示附加文字
+    try:
+        if (new_message.message_type or 'text') in ['image', 'video', 'audio', 'file', 'task'] and (new_message.content or '').strip():
+            message_data['caption'] = new_message.content
+    except Exception:
+        pass
     
     # 添加回复消息ID
     if new_message.reply_to_id:
@@ -224,13 +238,25 @@ def send_message(current_user, room_id):
             message_data['task'] = task.to_dict()
             message_data['task_id'] = new_message.task_id
 
-    # 通过WebSocket广播新消息（可选，如果SocketIO可用）
+    # 通过WebSocket广播新消息
+    try:
+        from utils.websocket_manager import ws_manager
+        ws_manager.broadcast_to_room(
+            str(room_id), 
+            {
+                "type": "new_message",
+                "payload": message_data
+            }
+        )
+    except Exception as e:
+        print(f"WS Broadcast error: {e}")
+
+    # 保留 SocketIO 代码作为备份或向后兼容 (如果需要)
     try:
         from app import socketio
         if socketio:
             socketio.emit('new_message', {'type': 'new_message', 'payload': message_data}, room=str(room_id))
     except (ImportError, AttributeError):
-        # SocketIO不可用时不广播，但不影响消息发送
         pass
 
     return jsonify(message_data), 201
